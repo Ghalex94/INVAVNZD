@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Domain;
 
 namespace Presentation
 {
@@ -39,7 +40,6 @@ namespace Presentation
         {
 
         }
-
 
         #region Animacion similar de placeholder
         private void txtuser_Enter(object sender, EventArgs e)
@@ -122,6 +122,62 @@ namespace Presentation
             btnMinimizar.BackColor = Color.Green;
         }
 
+
+        #endregion
+
+        #region Login de un Usuario
+        #region Boton de Logeo
+        private void btnlogin_Click(object sender, EventArgs e)
+        {
+            if (txtuser.Text != "USUARIO")
+            {
+                if (txtpass.Text != "CONTRASEÑA")
+                {
+                    UserModel user = new UserModel();
+                    var validLogig = user.LoginUser(txtuser.Text, txtpass.Text);
+                    if (validLogig)
+                    {
+                        FMenu mainmenu = new FMenu();
+                        mainmenu.Show();
+                        mainmenu.FormClosed += Logout;
+                        this.Hide();                     
+                    }
+                    else
+                    {
+                        msgError("Usuario y Contraseña incorrectas. \n    Por favor intente denuevo.");
+                        txtuser.Clear();
+                        txtpass.UseSystemPasswordChar = false;
+                        txtpass.Text = "CONTRASEÑA";
+                        txtpass.ForeColor = Color.DimGray;
+                        //txtpass.UseSystemPasswordChar = true;
+                        txtuser.Focus();
+                    }
+                }
+                else msgError("Por favor ingrese la contraseña.");
+            }
+            else msgError("Por favor Ingrese el usuario.");
+        }
+        #endregion
+
+        #region Muestra el error del Logeo
+        private void msgError(string msg)
+        {
+            lblError.Text = "    " + msg;
+            lblError.Visible = true;
+        }
+        #endregion
+
+        #region Cierre de Sesion
+        private void Logout(object sender, FormClosedEventArgs e)
+        {
+            txtpass.Text = "CONTRASEÑA";
+            txtpass.UseSystemPasswordChar = false;
+            txtuser.Text = "USUARIO";            
+            lblError.Visible = false;
+            this.Show();
+            //txtpass.Focus();
+        }
+        #endregion
         #endregion
 
 
