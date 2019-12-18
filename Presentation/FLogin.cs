@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Presentation
 {
@@ -16,25 +17,31 @@ namespace Presentation
         {
             InitializeComponent();
         }
-        protected override void OnPaint(PaintEventArgs e)
+
+        #region Drag Form/ Mover Arrastrar Formulario
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private void FLogin_MouseDown(object sender, MouseEventArgs e)
         {
-            base.OnPaint(e);
-            Graphics g;
-
-            g = e.Graphics;
-
-            Pen myPen = new Pen(Color.Red);
-            myPen.Width = 30;
-            g.DrawLine(myPen, 30, 30, 45, 65);
-
-            g.DrawLine(myPen, 1, 1, 45, 65);
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        private void panel1_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
+
+        #region Animacion similar de placeholder
         private void txtuser_Enter(object sender, EventArgs e)
         {
             if(txtuser.Text == "USUARIO")
@@ -71,6 +78,7 @@ namespace Presentation
                 txtpass.UseSystemPasswordChar = false; 
             }
         }
+        #endregion
 
         #region Animacion del boton Cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -93,6 +101,7 @@ namespace Presentation
         }
         #endregion
 
+        #region Animacion del boton Minimizar
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -112,5 +121,9 @@ namespace Presentation
         {
             btnMinimizar.BackColor = Color.Green;
         }
+
+        #endregion
+
+
     }
 }
