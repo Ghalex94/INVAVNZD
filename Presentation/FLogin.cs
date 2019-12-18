@@ -145,7 +145,7 @@ namespace Presentation
                     else
                     {
                         msgError("Usuario y Contraseña incorrectas. \n    Por favor intente denuevo.");
-                        txtuser.Clear();
+                        //tuser.Clear();
                         txtpass.UseSystemPasswordChar = false;
                         txtpass.Text = "CONTRASEÑA";
                         txtpass.ForeColor = Color.DimGray;
@@ -179,7 +179,6 @@ namespace Presentation
         }
         #endregion
         #endregion
-
 
     }
 }
