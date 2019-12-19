@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using Common.Cache;
 
 namespace Presentation
@@ -18,7 +19,22 @@ namespace Presentation
             InitializeComponent();
             permisos();
             CustomizeDesign();
+            
+            
         }
+
+        #region Drag Form/ Mover Arrastrar Formulario
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
+
         #region Animacion del boton Cerrar
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -183,7 +199,8 @@ namespace Presentation
             showSubMenu(panelConfiguraciones);
         }
         #endregion
-    
+
+        #region Permisos Para los botones Padres
         public void permisos()
         {
             //btnVentas.Enabled = false;
@@ -227,6 +244,61 @@ namespace Presentation
                 }
                 
             }
+        }
+
+        #endregion
+
+
+        private void AbrirFOrmulario<MiForm>() where MiForm : Form, new()
+        {
+            Form formulario;
+            formulario = panelFormulario.Controls.OfType<MiForm>().FirstOrDefault(); // Busca en la coleccion el formulario
+            // Si el formulario no existe
+            if (formulario == null)
+            {
+                formulario = new MiForm();
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                panelFormulario.Controls.Add(formulario);
+                panelFormulario.Tag = formulario;
+                formulario.Show();
+                formulario.BringToFront();
+                formulario.FormClosed += new FormClosedEventHandler(CloseForms);
+            }
+            else
+            {
+                formulario.BringToFront();
+            }
+        }
+
+        private void CloseForms(object sender, FormClosedEventArgs e)
+        {
+            if (Application.OpenForms["FVerUsuario"] == null)
+            {
+                btnVerUsuarios.BackColor = Color.White;
+            }
+            //if (Application.OpenForms["Form2"] == null)
+            //{
+
+            //    sub2Button1.BackColor = Color.White;
+            //}
+            //if (Application.OpenForms["Form3"] == null)
+            //{
+            //    sub3Button1.BackColor = Color.White;
+            //}
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            AbrirFOrmulario<FVerUsuarios>();
+            btnVerUsuarios.BackColor = Color.FromArgb(12, 61, 92);
+        }
+
+        private void FMenu_Load(object sender, EventArgs e)
+        {
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
         }
     }
 }

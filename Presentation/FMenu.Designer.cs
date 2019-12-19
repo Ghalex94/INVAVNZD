@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMenu));
             this.panelcontenedor = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelFormulario = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelConfiguraciones = new System.Windows.Forms.Panel();
@@ -41,7 +41,7 @@
             this.panelUsuario = new System.Windows.Forms.Panel();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.btnVerUsuarios = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.panelClientes = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
@@ -91,7 +91,7 @@
             // panelcontenedor
             // 
             this.panelcontenedor.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelcontenedor.Controls.Add(this.panel3);
+            this.panelcontenedor.Controls.Add(this.panelFormulario);
             this.panelcontenedor.Controls.Add(this.panel2);
             this.panelcontenedor.Controls.Add(this.panel1);
             this.panelcontenedor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -100,13 +100,13 @@
             this.panelcontenedor.Size = new System.Drawing.Size(898, 512);
             this.panelcontenedor.TabIndex = 0;
             // 
-            // panel3
+            // panelFormulario
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(233, 20);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(665, 492);
-            this.panel3.TabIndex = 2;
+            this.panelFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFormulario.Location = new System.Drawing.Point(233, 20);
+            this.panelFormulario.Name = "panelFormulario";
+            this.panelFormulario.Size = new System.Drawing.Size(665, 492);
+            this.panelFormulario.TabIndex = 2;
             // 
             // panel2
             // 
@@ -223,7 +223,7 @@
             this.panelUsuario.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panelUsuario.Controls.Add(this.button14);
             this.panelUsuario.Controls.Add(this.button15);
-            this.panelUsuario.Controls.Add(this.button16);
+            this.panelUsuario.Controls.Add(this.btnVerUsuarios);
             this.panelUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUsuario.Location = new System.Drawing.Point(0, 688);
             this.panelUsuario.Name = "panelUsuario";
@@ -260,20 +260,21 @@
             this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button15.UseVisualStyleBackColor = false;
             // 
-            // button16
+            // btnVerUsuarios
             // 
-            this.button16.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Location = new System.Drawing.Point(0, 0);
-            this.button16.Name = "button16";
-            this.button16.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button16.Size = new System.Drawing.Size(216, 35);
-            this.button16.TabIndex = 0;
-            this.button16.Text = "Ver Usuario";
-            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button16.UseVisualStyleBackColor = false;
+            this.btnVerUsuarios.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnVerUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVerUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnVerUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.btnVerUsuarios.Name = "btnVerUsuarios";
+            this.btnVerUsuarios.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnVerUsuarios.Size = new System.Drawing.Size(216, 35);
+            this.btnVerUsuarios.TabIndex = 0;
+            this.btnVerUsuarios.Text = "Ver Usuarios";
+            this.btnVerUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerUsuarios.UseVisualStyleBackColor = false;
+            this.btnVerUsuarios.Click += new System.EventHandler(this.button16_Click);
             // 
             // btnUsuarios
             // 
@@ -669,9 +670,11 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(898, 20);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // btnMinimizar
             // 
+            this.btnMinimizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
             this.btnMinimizar.Location = new System.Drawing.Point(856, 0);
@@ -687,6 +690,7 @@
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.Location = new System.Drawing.Point(876, 0);
@@ -709,8 +713,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FMenu";
             this.Opacity = 0.95D;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FMenu";
+            this.Load += new System.EventHandler(this.FMenu_Load);
             this.panelcontenedor.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -736,7 +741,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelFormulario;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panelConfiguraciones;
@@ -747,7 +752,7 @@
         private System.Windows.Forms.Panel panelUsuario;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button btnVerUsuarios;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Panel panelClientes;
         private System.Windows.Forms.Button button10;
