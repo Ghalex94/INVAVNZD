@@ -7,19 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Domain;
 
 namespace Presentation
 {
-    public partial class FVerUsuarios : Form
+    public partial class FUsuariosVer : Form
     {
-        public FVerUsuarios()
+        public FUsuariosVer()
         {
             InitializeComponent();
+            Usuarios();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Usuarios()
+        {
+            UserModel user = new UserModel();
+            user.MostrarUSuarios(dgvUsuarios);
+        }
+
+        private void btnAgregarUsuario_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

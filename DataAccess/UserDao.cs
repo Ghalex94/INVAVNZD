@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using Common.Cache;
+using System.Windows.Forms;
 
 namespace DataAccess
 {
@@ -34,12 +35,38 @@ namespace DataAccess
                             UserCache.passUsuario = reader.GetString(3);
                             UserCache.tipoUsuario = reader.GetByte(4);
                             UserCache.permisosUsuario = reader.GetString(5);
+                            UserCache.estado = reader.GetByte(6);
                         }
                         return true;
                     }
                     else
                         return false;
                 }
+            }
+        }
+        public void mostrarTabla(DataGridView dgv)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "SELECT * FROM tb_usuario where estado = 1";
+                        command.CommandType = System.Data.CommandType.Text;
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+                        System.Data.DataTable dt = new System.Data.DataTable();
+                        adapter.Fill(dt);
+                        dgv.DataSource = dt;
+                    }
+                }                
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
             }
         }
     }

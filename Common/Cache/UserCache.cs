@@ -14,5 +14,6 @@ namespace Common.Cache
         public static string passUsuario { get; set; }
         public static int tipoUsuario { get; set; }
         public static string permisosUsuario { get; set; }
+        public static int estado { get; set; }
     }
 }

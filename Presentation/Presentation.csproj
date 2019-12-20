@@ -58,11 +58,17 @@
     <Compile Include="FMenu.Designer.cs">
       <DependentUpon>FMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FVerUsuarios.cs">
+    <Compile Include="FUsuarioCrear.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FVerUsuarios.Designer.cs">
-      <DependentUpon>FVerUsuarios.cs</DependentUpon>
+    <Compile Include="FUsuarioCrear.Designer.cs">
+      <DependentUpon>FUsuarioCrear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FUsuariosVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FUsuariosVer.Designer.cs">
+      <DependentUpon>FUsuariosVer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,8 +78,8 @@
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FVerUsuarios.resx">
-      <DependentUpon>FVerUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="FUsuariosVer.resx">
+      <DependentUpon>FUsuariosVer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

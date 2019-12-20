@@ -291,7 +291,7 @@ namespace Presentation
 
         private void button16_Click(object sender, EventArgs e)
         {
-            AbrirFOrmulario<FVerUsuarios>();
+            AbrirFOrmulario<FUsuariosVer>();
             btnVerUsuarios.BackColor = Color.FromArgb(12, 61, 92);
         }
 
@@ -299,6 +299,15 @@ namespace Presentation
         {
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            bool testBool = false;
+
+            int testInt = testBool ? 1 : 0;
+
+            MessageBox.Show("" + testInt);
         }
     }
 }
