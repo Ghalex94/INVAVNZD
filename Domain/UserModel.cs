@@ -20,5 +20,9 @@ namespace Domain
         {
             userdao.mostrarTabla(dgv);
         }
+        public void InsertarUsuario(string nombre, string usu, string pass, int tipo, string permisos, int estado) {
+            userdao.insertarUsuario(nombre,usu,pass,tipo,permisos,estado);
+        }
+   
     }   
 }  

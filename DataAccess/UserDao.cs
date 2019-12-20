@@ -69,5 +69,33 @@ namespace DataAccess
                 MessageBox.Show("Error: " + error);
             }
         }
+        public void insertarUsuario(string nombre, string usu, string pass, int tipo, string permisos, int estado)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand())
+                {
+                    try
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "insert into tb_usuario(nombre_usu,usu,contra,tipo,permisos,estado)values(@nombre,@usu,@pass,@tipo,@permisos,@estado)";
+                        command.Parameters.AddWithValue("@nombre", nombre);
+                        command.Parameters.AddWithValue("@usu", usu);
+                        command.Parameters.AddWithValue("@pass", pass);
+                        command.Parameters.AddWithValue("@tipo", tipo);
+                        command.Parameters.AddWithValue("@permisos", permisos);
+                        command.Parameters.AddWithValue("@estado", estado);
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Registro Ingresado con Exito");
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error: " + error);
+                    }
+                }              
+            }
+        }
     }
 }

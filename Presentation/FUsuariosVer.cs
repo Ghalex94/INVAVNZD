@@ -32,7 +32,8 @@ namespace Presentation
 
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
-
+            Form crear = new FUsuarioCrear();
+            crear.Show();
         }
     }
 }

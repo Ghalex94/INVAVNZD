@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -77,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FUsuarioCrear.resx">
+      <DependentUpon>FUsuarioCrear.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FUsuariosVer.resx">
       <DependentUpon>FUsuariosVer.cs</DependentUpon>

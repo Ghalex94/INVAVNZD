@@ -126,6 +126,7 @@ namespace Presentation
         #endregion
 
         #region Login de un Usuario
+
         #region Boton de Logeo
         private void btnlogin_Click(object sender, EventArgs e)
         {
@@ -178,6 +179,7 @@ namespace Presentation
             //txtpass.Focus();
         }
         #endregion
+
         #endregion
 
     }
