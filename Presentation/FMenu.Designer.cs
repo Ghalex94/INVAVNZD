@@ -724,7 +724,6 @@
             this.Controls.Add(this.panelcontenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FMenu";
-            this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FMenu";
             this.Load += new System.EventHandler(this.FMenu_Load);
