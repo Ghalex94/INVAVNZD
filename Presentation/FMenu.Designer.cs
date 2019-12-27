@@ -600,7 +600,7 @@
             this.btnVentas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnVentas.Size = new System.Drawing.Size(216, 40);
             this.btnVentas.TabIndex = 8;
-            this.btnVentas.Text = "Ventas";
+            this.btnVentas.Text = "Ventassss";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.UseVisualStyleBackColor = false;
             this.btnVentas.Visible = false;
