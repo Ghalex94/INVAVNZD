@@ -136,7 +136,8 @@ create table tb_usuario(
     usu					varchar(30), -- Usuario
     contra				varchar(30), -- Contraseña
     tipo				tinyint, -- Tipo de Usuario
-    permisos			varchar(50) -- 1,2,6
+    permisos			varchar(50), -- 1,2,6
+    estado				tinyint
 );
 
 create table tb_ventas_cotizaciones(
