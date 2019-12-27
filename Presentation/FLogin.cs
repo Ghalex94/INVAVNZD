@@ -36,18 +36,13 @@ namespace Presentation
         }
         #endregion
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        #region Animacion similar de placeholder
+        #region Animacion similar de placeholder (texto oculto en textbox)
         private void txtuser_Enter(object sender, EventArgs e)
         {
             if(txtuser.Text == "USUARIO")
             {
                 txtuser.Text = "";
-                txtuser.ForeColor = Color.LightGray;
+                txtuser.ForeColor = Color.White;
             }
         }
         private void txtuser_Leave(object sender, EventArgs e)
@@ -64,7 +59,7 @@ namespace Presentation
             if(txtpass.Text == "CONTRASEÑA")
             {
                 txtpass.Text = "";
-                txtpass.ForeColor = Color.LightGray;
+                txtpass.ForeColor = Color.White;
                 txtpass.UseSystemPasswordChar = true;
             }
         }
@@ -80,7 +75,7 @@ namespace Presentation
         }
         #endregion
 
-        #region Animacion del boton Cerrar
+        #region Animacion del boton Cerrar (cambio de color)
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -92,7 +87,7 @@ namespace Presentation
 
         private void btnCerrar_MouseLeave(object sender, EventArgs e)
         {
-            btnCerrar.BackColor = Color.FromArgb(15, 15, 15);
+            btnCerrar.BackColor = Color.FromArgb(64, 64, 64);
         }
 
         private void btnCerrar_MouseHover(object sender, EventArgs e)
@@ -101,7 +96,7 @@ namespace Presentation
         }
         #endregion
 
-        #region Animacion del boton Minimizar
+        #region Animacion del boton Minimizar (cambio de color)
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -114,7 +109,7 @@ namespace Presentation
 
         private void btnMinimizar_MouseLeave(object sender, EventArgs e)
         {
-            btnMinimizar.BackColor = Color.FromArgb(15, 15, 15);
+            btnMinimizar.BackColor = Color.FromArgb(64, 64, 64);
         }
 
         private void btnMinimizar_MouseHover(object sender, EventArgs e)
@@ -145,25 +140,25 @@ namespace Presentation
                     }
                     else
                     {
-                        msgError("Usuario y Contraseña incorrectas. \n    Por favor intente denuevo.");
-                        //tuser.Clear();
-                        txtpass.UseSystemPasswordChar = false;
-                        txtpass.Text = "CONTRASEÑA";
-                        txtpass.ForeColor = Color.DimGray;
-                        //txtpass.UseSystemPasswordChar = true;
+                        msgError("Usuario y/o Contraseña incorrectas. \nPor favor intente nuevamente.");
                         txtuser.Focus();
+                        //tuser.Clear();
+                        //txtpass.UseSystemPasswordChar = false;
+                        //txtpass.Text = "CONTRASEÑA";
+                        //txtpass.ForeColor = Color.DimGray;
+                        //txtpass.UseSystemPasswordChar = true;
                     }
                 }
-                else msgError("Por favor ingrese la contraseña.");
+                else msgError("Por favor, ingrese la contraseña.");
             }
-            else msgError("Por favor Ingrese el usuario.");
+            else msgError("Por favor, ingrese el usuario.");
         }
         #endregion
 
         #region Muestra el error del Logeo
         private void msgError(string msg)
         {
-            lblError.Text = "    " + msg;
+            lblError.Text = msg;
             lblError.Visible = true;
         }
         #endregion

@@ -69,11 +69,11 @@
             // 
             // txtuser
             // 
-            this.txtuser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtuser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtuser.ForeColor = System.Drawing.Color.DimGray;
-            this.txtuser.Location = new System.Drawing.Point(311, 93);
+            this.txtuser.ForeColor = System.Drawing.Color.DarkGray;
+            this.txtuser.Location = new System.Drawing.Point(311, 91);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(403, 19);
             this.txtuser.TabIndex = 1;
@@ -83,11 +83,11 @@
             // 
             // txtpass
             // 
-            this.txtpass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtpass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpass.ForeColor = System.Drawing.Color.DimGray;
-            this.txtpass.Location = new System.Drawing.Point(311, 167);
+            this.txtpass.ForeColor = System.Drawing.Color.DarkGray;
+            this.txtpass.Location = new System.Drawing.Point(311, 165);
             this.txtpass.Name = "txtpass";
             this.txtpass.Size = new System.Drawing.Size(403, 19);
             this.txtpass.TabIndex = 2;
@@ -99,13 +99,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(467, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 31);
             this.label1.TabIndex = 3;
             this.label1.Text = "LOGIN";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnlogin
             // 
@@ -156,7 +155,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.DimGray;
+            this.textBox1.BackColor = System.Drawing.Color.DarkGray;
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(311, 114);
             this.textBox1.Multiline = true;
@@ -166,7 +165,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.DimGray;
+            this.textBox2.BackColor = System.Drawing.Color.DarkGray;
             this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(311, 188);
             this.textBox2.Multiline = true;
@@ -178,7 +177,7 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblError.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblError.ForeColor = System.Drawing.Color.LightCoral;
             this.lblError.Location = new System.Drawing.Point(311, 208);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(45, 16);
@@ -190,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(780, 330);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.textBox2);

@@ -44,6 +44,7 @@ namespace DataAccess
                 }
             }
         }
+
         public void mostrarTabla(DataGridView dgv)
         {
             try

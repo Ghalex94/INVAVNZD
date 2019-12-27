@@ -12,7 +12,7 @@ namespace DataAccess
         private readonly string connectionString;
         public ConnectionToMySql()
         {
-            connectionString = "server=127.0.0.1; database=db_inventario_avanzado; uid = root; pwd=Aa123";
+            connectionString = "server=127.0.0.1; database=db_inventario_avanzado; uid=root; pwd=Aa123";
         }
         protected MySqlConnection GetConnection()
         {
