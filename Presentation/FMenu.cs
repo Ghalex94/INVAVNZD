@@ -18,11 +18,10 @@ namespace Presentation
         {
             InitializeComponent();
             permisos();
-            CustomizeDesign();
-            
-            
+            CustomizeDesign();            
         }
 
+        #region Permitir maximizar y minimizar desde la barra de tareas
         const int WS_MINIMIZEBOX = 0x20000;
         const int CS_DBLCLKS = 0x8;
         protected override CreateParams CreateParams
@@ -36,7 +35,7 @@ namespace Presentation
                 return cp;
             }
         }
-
+        #endregion
 
         #region Drag Form/ Mover Arrastrar Formulario
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -47,49 +46,6 @@ namespace Presentation
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        #endregion
-
-        #region Animacion del boton Cerrar
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void btnCerrar_MouseDown(object sender, MouseEventArgs e)
-        {
-            btnCerrar.BackColor = Color.Red;
-        }
-
-        private void btnCerrar_MouseLeave(object sender, EventArgs e)
-        {
-            btnCerrar.BackColor = Color.FromArgb(15, 15, 15);
-        }
-
-        private void btnCerrar_MouseHover(object sender, EventArgs e)
-        {
-            btnCerrar.BackColor = Color.Red;
-        }
-        #endregion
-
-        #region Animcacion del boton Minimizar
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnMinimizar_MouseDown(object sender, MouseEventArgs e)
-        {
-            btnMinimizar.BackColor = Color.Green;
-        }
-
-        private void btnMinimizar_MouseHover(object sender, EventArgs e)
-        {
-            btnMinimizar.BackColor = Color.Green;
-        }
-
-        private void btnMinimizar_MouseLeave(object sender, EventArgs e)
-        {
-            btnMinimizar.BackColor = Color.FromArgb(15, 15, 15);
         }
         #endregion
 
@@ -128,6 +84,22 @@ namespace Presentation
             this.Invalidate();
         }
 
+        #endregion
+
+        #region Acciones de minimizar, salir
+        private void btnMinimizarr_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult rpt;
+            rpt = MessageBox.Show("¿Salir del Sistema?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            //rpt = MessageBox.Show("¿Salir del Sistema?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rpt == DialogResult.Yes)
+                    Application.Exit();
+        }
         #endregion
 
         #region Cerrar Sesion
@@ -264,7 +236,7 @@ namespace Presentation
         #endregion
 
 
-        private void AbrirFOrmulario<MiForm>() where MiForm : Form, new()
+        private void AbrirFormulario<MiForm>() where MiForm : Form, new()
         {
             Form formulario;
             formulario = panelFormulario.Controls.OfType<MiForm>().FirstOrDefault(); // Busca en la coleccion el formulario
@@ -306,7 +278,7 @@ namespace Presentation
 
         private void button16_Click(object sender, EventArgs e)
         {
-            AbrirFOrmulario<FUsuariosVer>();
+            AbrirFormulario<FUsuariosVer>();
             btnVerUsuarios.BackColor = Color.FromArgb(12, 61, 92);
         }
 
@@ -324,5 +296,6 @@ namespace Presentation
 
             MessageBox.Show("" + testInt);
         }
+
     }
 }

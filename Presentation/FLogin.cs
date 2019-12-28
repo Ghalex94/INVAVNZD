@@ -36,6 +36,22 @@ namespace Presentation
         }
         #endregion
 
+        #region Permitir maximizar y minimizar desde la barra de tareas
+        const int WS_MINIMIZEBOX = 0x20000;
+        const int CS_DBLCLKS = 0x8;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                // para minimizar a restaurar ventana desde icno de barra de estado
+                cp.Style |= WS_MINIMIZEBOX;// 
+                cp.ClassStyle |= CS_DBLCLKS;
+                return cp;
+            }
+        }
+        #endregion
+
         #region Animacion similar de placeholder (texto oculto en textbox)
         private void txtuser_Enter(object sender, EventArgs e)
         {
@@ -74,56 +90,38 @@ namespace Presentation
             }
         }
         #endregion
-
-        #region Animacion del boton Cerrar (cambio de color)
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private void btnCerrar_MouseDown(object sender, MouseEventArgs e)
-        {
-            btnCerrar.BackColor = Color.Red;
-        }
-
-        private void btnCerrar_MouseLeave(object sender, EventArgs e)
-        {
-            btnCerrar.BackColor = Color.FromArgb(64, 64, 64);
-        }
-
-        private void btnCerrar_MouseHover(object sender, EventArgs e)
-        {
-            btnCerrar.BackColor = Color.Red;
-        }
-        #endregion
-
-        #region Animacion del boton Minimizar (cambio de color)
-        private void btnMinimizar_Click(object sender, EventArgs e)
+        
+        #region Acciones de minimizar, salir
+        private void btnMinimizarr_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btnMinimizar_MouseDown(object sender, MouseEventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
-            btnMinimizar.BackColor = Color.Green;
+            DialogResult rpt;
+            rpt = MessageBox.Show("¿Salir del Sistema?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            //rpt = MessageBox.Show("¿Salir del Sistema?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rpt == DialogResult.Yes)
+                Application.Exit();
         }
-
-        private void btnMinimizar_MouseLeave(object sender, EventArgs e)
-        {
-            btnMinimizar.BackColor = Color.FromArgb(64, 64, 64);
-        }
-
-        private void btnMinimizar_MouseHover(object sender, EventArgs e)
-        {
-            btnMinimizar.BackColor = Color.Green;
-        }
-
-
         #endregion
 
-        #region Login de un Usuario
+        #region LOGIN
 
         #region Boton de Logeo
         private void btnlogin_Click(object sender, EventArgs e)
+        {
+            VerificarLogin();
+        }
+
+        private void txtpass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+                VerificarLogin();
+        }
+
+        private void VerificarLogin() 
         {
             if (txtuser.Text != "USUARIO")
             {
@@ -136,7 +134,7 @@ namespace Presentation
                         FMenu mainmenu = new FMenu();
                         mainmenu.Show();
                         mainmenu.FormClosed += Logout;
-                        this.Hide();                     
+                        this.Hide();
                     }
                     else
                     {
@@ -153,6 +151,7 @@ namespace Presentation
             }
             else msgError("Por favor, ingrese el usuario.");
         }
+
         #endregion
 
         #region Muestra el error del Logeo
@@ -171,6 +170,7 @@ namespace Presentation
             txtuser.Text = "USUARIO";            
             lblError.Visible = false;
             this.Show();
+            txtuser.Focus();
             //txtpass.Focus();
         }
         #endregion

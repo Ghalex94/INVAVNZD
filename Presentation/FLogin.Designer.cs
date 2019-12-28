@@ -28,41 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txtuser = new System.Windows.Forms.TextBox();
             this.txtpass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnlogin = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblError = new System.Windows.Forms.Label();
+            this.btnMinimizarr = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(170)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(239)))));
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 330);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 5;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown_1);
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(12, 49);
+            this.pictureBox3.Image = global::Presentation.Properties.Resources.Loggin;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(220, 220);
+            this.pictureBox3.Size = new System.Drawing.Size(251, 331);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
@@ -76,7 +73,7 @@
             this.txtuser.Location = new System.Drawing.Point(311, 91);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(403, 19);
-            this.txtuser.TabIndex = 1;
+            this.txtuser.TabIndex = 0;
             this.txtuser.Text = "USUARIO";
             this.txtuser.Enter += new System.EventHandler(this.txtuser_Enter);
             this.txtuser.Leave += new System.EventHandler(this.txtuser_Leave);
@@ -90,9 +87,10 @@
             this.txtpass.Location = new System.Drawing.Point(311, 165);
             this.txtpass.Name = "txtpass";
             this.txtpass.Size = new System.Drawing.Size(403, 19);
-            this.txtpass.TabIndex = 2;
+            this.txtpass.TabIndex = 1;
             this.txtpass.Text = "CONTRASEÑA";
             this.txtpass.Enter += new System.EventHandler(this.txtpass_Enter);
+            this.txtpass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpass_KeyPress);
             this.txtpass.Leave += new System.EventHandler(this.txtpass_Leave);
             // 
             // label1
@@ -103,7 +101,7 @@
             this.label1.Location = new System.Drawing.Point(467, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 31);
-            this.label1.TabIndex = 3;
+            this.label1.TabIndex = 6;
             this.label1.Text = "LOGIN";
             // 
             // btnlogin
@@ -118,40 +116,10 @@
             this.btnlogin.Location = new System.Drawing.Point(311, 267);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(403, 46);
-            this.btnlogin.TabIndex = 0;
+            this.btnlogin.TabIndex = 2;
             this.btnlogin.Text = "ACCEDER";
             this.btnlogin.UseVisualStyleBackColor = false;
             this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(760, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 5;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            this.btnCerrar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnCerrar_MouseDown);
-            this.btnCerrar.MouseLeave += new System.EventHandler(this.btnCerrar_MouseLeave);
-            this.btnCerrar.MouseHover += new System.EventHandler(this.btnCerrar_MouseHover);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(740, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 6;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            this.btnMinimizar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnMinimizar_MouseDown);
-            this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
-            this.btnMinimizar.MouseHover += new System.EventHandler(this.btnMinimizar_MouseHover);
             // 
             // textBox1
             // 
@@ -185,17 +153,59 @@
             this.lblError.Text = "label2";
             this.lblError.Visible = false;
             // 
+            // btnMinimizarr
+            // 
+            this.btnMinimizarr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnMinimizarr.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizarr.FlatAppearance.BorderSize = 0;
+            this.btnMinimizarr.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnMinimizarr.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnMinimizarr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.btnMinimizarr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimizarr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimizarr.ForeColor = System.Drawing.Color.White;
+            this.btnMinimizarr.Location = new System.Drawing.Point(709, 2);
+            this.btnMinimizarr.Name = "btnMinimizarr";
+            this.btnMinimizarr.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnMinimizarr.Size = new System.Drawing.Size(35, 24);
+            this.btnMinimizarr.TabIndex = 3;
+            this.btnMinimizarr.Text = "-";
+            this.btnMinimizarr.UseCompatibleTextRendering = true;
+            this.btnMinimizarr.UseVisualStyleBackColor = false;
+            this.btnMinimizarr.Click += new System.EventHandler(this.btnMinimizarr_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Location = new System.Drawing.Point(744, 2);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnSalir.Size = new System.Drawing.Size(35, 24);
+            this.btnSalir.TabIndex = 4;
+            this.btnSalir.Text = "X";
+            this.btnSalir.UseCompatibleTextRendering = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(780, 330);
+            this.Controls.Add(this.btnMinimizarr);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnMinimizar);
-            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnlogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtpass);
@@ -209,8 +219,6 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FLogin_MouseDown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,12 +231,12 @@
         private System.Windows.Forms.TextBox txtpass;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnlogin;
-        private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Button btnMinimizarr;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 
