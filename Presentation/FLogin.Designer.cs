@@ -73,9 +73,10 @@
             this.txtuser.Location = new System.Drawing.Point(311, 91);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(403, 19);
-            this.txtuser.TabIndex = 0;
+            this.txtuser.TabIndex = 1;
             this.txtuser.Text = "USUARIO";
             this.txtuser.Enter += new System.EventHandler(this.txtuser_Enter);
+            this.txtuser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtuser_KeyPress);
             this.txtuser.Leave += new System.EventHandler(this.txtuser_Leave);
             // 
             // txtpass
@@ -87,7 +88,7 @@
             this.txtpass.Location = new System.Drawing.Point(311, 165);
             this.txtpass.Name = "txtpass";
             this.txtpass.Size = new System.Drawing.Size(403, 19);
-            this.txtpass.TabIndex = 1;
+            this.txtpass.TabIndex = 2;
             this.txtpass.Text = "CONTRASEÑA";
             this.txtpass.Enter += new System.EventHandler(this.txtpass_Enter);
             this.txtpass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpass_KeyPress);
@@ -116,7 +117,7 @@
             this.btnlogin.Location = new System.Drawing.Point(311, 267);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(403, 46);
-            this.btnlogin.TabIndex = 2;
+            this.btnlogin.TabIndex = 3;
             this.btnlogin.Text = "ACCEDER";
             this.btnlogin.UseVisualStyleBackColor = false;
             this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click);
@@ -160,7 +161,7 @@
             this.btnMinimizarr.FlatAppearance.BorderSize = 0;
             this.btnMinimizarr.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
             this.btnMinimizarr.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnMinimizarr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.btnMinimizarr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(239)))));
             this.btnMinimizarr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizarr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizarr.ForeColor = System.Drawing.Color.White;
@@ -168,7 +169,7 @@
             this.btnMinimizarr.Name = "btnMinimizarr";
             this.btnMinimizarr.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnMinimizarr.Size = new System.Drawing.Size(35, 24);
-            this.btnMinimizarr.TabIndex = 3;
+            this.btnMinimizarr.TabIndex = 4;
             this.btnMinimizarr.Text = "-";
             this.btnMinimizarr.UseCompatibleTextRendering = true;
             this.btnMinimizarr.UseVisualStyleBackColor = false;
@@ -181,7 +182,7 @@
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
@@ -189,7 +190,7 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnSalir.Size = new System.Drawing.Size(35, 24);
-            this.btnSalir.TabIndex = 4;
+            this.btnSalir.TabIndex = 0;
             this.btnSalir.Text = "X";
             this.btnSalir.UseCompatibleTextRendering = true;
             this.btnSalir.UseVisualStyleBackColor = false;

@@ -18,7 +18,7 @@ namespace Presentation
         {
             InitializeComponent();
             permisos();
-            CustomizeDesign();            
+            cargarDatosUsuario();
         }
 
         #region Permitir maximizar y minimizar desde la barra de tareas
@@ -86,6 +86,7 @@ namespace Presentation
 
         #endregion
 
+
         #region Acciones de minimizar, salir
         private void btnMinimizarr_Click(object sender, EventArgs e)
         {
@@ -102,30 +103,8 @@ namespace Presentation
         }
         #endregion
 
-        #region Cerrar Sesion
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Estas seguro de Cerrar Sesion", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
-        #endregion
-
-        #region Esconder paneles de los Botones Padres
-        private void CustomizeDesign()
-        {
-            panelVentas.Visible = false;
-            panelClientes.Visible = false;
-            panelCompras.Visible = false;
-            panelUsuario.Visible = false;
-            panelReportes.Visible = false;
-            panelConfiguraciones.Visible = false;
-        }
-        #endregion
-
         #region Para mostrar y esconder los botones hijos del contenedor
-        private void hideSubMenu()
+        private void hideSubMenu() // ESCONDE TODOS LOS PANELES
         {
             if (panelVentas.Visible == true)
                 panelVentas.Visible = false;
@@ -142,7 +121,7 @@ namespace Presentation
 
         }
 
-        private void showSubMenu(Panel subMenu)
+        private void showSubMenu(Panel subMenu) // MUESTRA EL PANEL DESEADO
         {
             if (subMenu.Visible == false)
             {
@@ -187,20 +166,13 @@ namespace Presentation
         }
         #endregion
 
-        #region Permisos Para los botones Padres
+        #region Habilitar los menús según los permisos del usuario
         public void permisos()
         {
-            //btnVentas.Enabled = false;
-            //btnCompras.Enabled = false;
-            //btnReportes.Enabled = false;
-            //btnClientes.Enabled = false;
-            //btnUsuarios.Enabled = false;
-            //btnConfiguraciones.Enabled = false;
-
             string cadena = UserCache.permisosUsuario;
-            String[] separadas;
-            separadas = cadena.Split(',');
-            foreach(string i in separadas)
+            String[] permisoseparados;
+            permisoseparados = cadena.Split(',');
+            foreach(string i in permisoseparados)
             {
                 switch (i)
                 {
@@ -235,6 +207,21 @@ namespace Presentation
 
         #endregion
 
+        #region Cargar datos de usuarios
+        private void cargarDatosUsuario()
+        {
+            string nombreUsuario = UserCache.nombreUsuario;
+            lblNombreUsuario.Text = nombreUsuario;
+        }
+        #endregion
+
+        #region Cerrar Sesion
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Está seguro de Cerrar Sesion", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
+        }
+        #endregion
 
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()
         {

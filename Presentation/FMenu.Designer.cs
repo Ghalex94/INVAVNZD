@@ -64,9 +64,7 @@
             this.btnVentas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.picbxMarca = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimizarr = new System.Windows.Forms.Button();
@@ -151,6 +149,7 @@
             this.panelConfiguraciones.Name = "panelConfiguraciones";
             this.panelConfiguraciones.Size = new System.Drawing.Size(216, 122);
             this.panelConfiguraciones.TabIndex = 19;
+            this.panelConfiguraciones.Visible = false;
             // 
             // button18
             // 
@@ -228,6 +227,7 @@
             this.panelUsuario.Name = "panelUsuario";
             this.panelUsuario.Size = new System.Drawing.Size(216, 122);
             this.panelUsuario.TabIndex = 17;
+            this.panelUsuario.Visible = false;
             // 
             // button14
             // 
@@ -306,6 +306,7 @@
             this.panelClientes.Name = "panelClientes";
             this.panelClientes.Size = new System.Drawing.Size(216, 122);
             this.panelClientes.TabIndex = 15;
+            this.panelClientes.Visible = false;
             // 
             // button10
             // 
@@ -384,6 +385,7 @@
             this.panelReportes.Name = "panelReportes";
             this.panelReportes.Size = new System.Drawing.Size(216, 122);
             this.panelReportes.TabIndex = 13;
+            this.panelReportes.Visible = false;
             // 
             // button6
             // 
@@ -461,6 +463,7 @@
             this.panelCompras.Name = "panelCompras";
             this.panelCompras.Size = new System.Drawing.Size(216, 122);
             this.panelCompras.TabIndex = 11;
+            this.panelCompras.Visible = false;
             // 
             // button2
             // 
@@ -538,6 +541,7 @@
             this.panelVentas.Name = "panelVentas";
             this.panelVentas.Size = new System.Drawing.Size(216, 122);
             this.panelVentas.TabIndex = 9;
+            this.panelVentas.Visible = false;
             // 
             // sub3Button3
             // 
@@ -622,9 +626,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.lblNombreUsuario);
             this.panel4.Controls.Add(this.picbxMarca);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -632,42 +634,23 @@
             this.panel4.Size = new System.Drawing.Size(233, 148);
             this.panel4.TabIndex = 0;
             // 
-            // label3
+            // lblNombreUsuario
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(11, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "label3";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(10, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "label2";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(10, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
+            this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblNombreUsuario.Location = new System.Drawing.Point(3, 105);
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Size = new System.Drawing.Size(227, 37);
+            this.lblNombreUsuario.TabIndex = 5;
+            this.lblNombreUsuario.Text = "name";
+            this.lblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // picbxMarca
             // 
             this.picbxMarca.Image = global::Presentation.Properties.Resources.Logo_Byte_x_Byte_05;
-            this.picbxMarca.Location = new System.Drawing.Point(65, 6);
+            this.picbxMarca.Location = new System.Drawing.Point(52, 2);
             this.picbxMarca.Name = "picbxMarca";
-            this.picbxMarca.Size = new System.Drawing.Size(100, 84);
+            this.picbxMarca.Size = new System.Drawing.Size(130, 99);
             this.picbxMarca.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picbxMarca.TabIndex = 4;
             this.picbxMarca.TabStop = false;
@@ -747,7 +730,6 @@
             this.panelCompras.ResumeLayout(false);
             this.panelVentas.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbxMarca)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -793,9 +775,7 @@
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNombreUsuario;
         private System.Windows.Forms.PictureBox picbxMarca;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnMinimizarr;

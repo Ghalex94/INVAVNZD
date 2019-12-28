@@ -66,7 +66,7 @@ namespace Presentation
             if (txtuser.Text == "")
             {
                 txtuser.Text = "USUARIO";
-                txtuser.ForeColor = Color.DimGray;
+                txtuser.ForeColor = Color.DarkGray;
             }
         }
 
@@ -85,7 +85,7 @@ namespace Presentation
             if (txtpass.Text == "")
             {
                 txtpass.Text = "CONTRASEÑA";
-                txtpass.ForeColor = Color.DimGray;
+                txtpass.ForeColor = Color.DarkGray;
                 txtpass.UseSystemPasswordChar = false; 
             }
         }
@@ -106,7 +106,7 @@ namespace Presentation
                 Application.Exit();
         }
         #endregion
-
+               
         #region LOGIN
 
         #region Boton de Logeo
@@ -115,10 +115,21 @@ namespace Presentation
             VerificarLogin();
         }
 
-        private void txtpass_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtuser_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)(Keys.Enter))
+            {
                 VerificarLogin();
+                e.Handled = true; // HACE QUE NO SE REPRODUZCA SONIDO AL DAR EN ENTER
+            }
+        }
+        private void txtpass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter)) 
+            { 
+                VerificarLogin();
+                e.Handled = true; // HACE QUE NO SE REPRODUZCA SONIDO AL DAR EN ENTER
+            }
         }
 
         private void VerificarLogin() 
@@ -166,8 +177,10 @@ namespace Presentation
         private void Logout(object sender, FormClosedEventArgs e)
         {
             txtpass.Text = "CONTRASEÑA";
+            txtpass.ForeColor = Color.DimGray;
             txtpass.UseSystemPasswordChar = false;
-            txtuser.Text = "USUARIO";            
+            txtuser.Text = "USUARIO";
+            txtuser.ForeColor = Color.DimGray;
             lblError.Visible = false;
             this.Show();
             txtuser.Focus();
@@ -176,5 +189,6 @@ namespace Presentation
         #endregion
 
         #endregion
+
     }
 }
