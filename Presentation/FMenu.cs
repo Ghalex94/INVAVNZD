@@ -20,6 +20,11 @@ namespace Presentation
             permisos();
             cargarDatosUsuario();
         }
+        private void FMenu_Load(object sender, EventArgs e)
+        {
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+        }
 
         #region Permitir maximizar y minimizar desde la barra de tareas
         const int WS_MINIMIZEBOX = 0x20000;
@@ -80,12 +85,11 @@ namespace Presentation
             sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
 
             region.Exclude(sizeGripRectangle);
-            this.panelcontenedor.Region = region;
+            this.panelGeneral.Region = region;
             this.Invalidate();
         }
 
         #endregion
-
 
         #region Acciones de minimizar, salir
         private void btnMinimizarr_Click(object sender, EventArgs e)
@@ -103,72 +107,34 @@ namespace Presentation
         }
         #endregion
 
-        #region Para mostrar y esconder los botones hijos del contenedor
-        private void hideSubMenu() // ESCONDE TODOS LOS PANELES
+        #region Cargar datos de usuario ingresante
+        private void cargarDatosUsuario()
         {
-            if (panelVentas.Visible == true)
-                panelVentas.Visible = false;
-            if (panelClientes.Visible == true)
-                panelClientes.Visible = false;
-            if (panelCompras.Visible == true)
-                panelCompras.Visible = false;
-            if (panelUsuario.Visible == true)
-                panelUsuario.Visible = false;
-            if (panelReportes.Visible == true)
-                panelReportes.Visible = false;
-            if (panelConfiguraciones.Visible == true)
-                panelConfiguraciones.Visible = false;
-
-        }
-
-        private void showSubMenu(Panel subMenu) // MUESTRA EL PANEL DESEADO
-        {
-            if (subMenu.Visible == false)
-            {
-                hideSubMenu();
-                subMenu.Visible = true;
-            }
-            else
-                subMenu.Visible = false;
-        }
-
-        #endregion
-
-        #region Agregamos a los botones padre la funcion de esconder los paneles hijos
-        private void btnVentas_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelVentas);
-        }
-
-        private void btnCompras_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelCompras);
-        }
-
-        private void btnReportes_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelReportes);
-        }
-
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelClientes);
-        }
-
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelUsuario);
-        }
-
-        private void btnConfiguraciones_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panelConfiguraciones);
+            string nombreUsuario = UserCache.nombreUsuario;
+            lblNombreUsuario.Text = nombreUsuario;
         }
         #endregion
 
         #region Habilitar los menús según los permisos del usuario
         public void permisos()
-        {
+        {/*
+            //DESHABILITAMOS Y OCULTAMOS TODO PARA LUEGO MOSTRARLOS SEGUN CORRESPONDA
+            btnVentas.Enabled = false;
+            btnVentas.Visible = false;
+            btnCaja.Enabled = false;
+            btnCaja.Visible = false;
+            btnCompras.Enabled = false;
+            btnCompras.Visible = false;
+            btnReportes.Enabled = false;
+            btnReportes.Visible = false;
+            btnClientes.Enabled = false;
+            btnClientes.Visible = false;
+            btnUsuarios.Enabled = false;
+            btnUsuarios.Visible = false;
+            btnConfiguraciones.Enabled = false;
+            btnConfiguraciones.Visible = false;
+           
+
             string cadena = UserCache.permisosUsuario;
             String[] permisoseparados;
             permisoseparados = cadena.Split(',');
@@ -202,27 +168,83 @@ namespace Presentation
                         break;
                 }
                 
-            }
+            }*/
         }
 
         #endregion
 
-        #region Cargar datos de usuarios
-        private void cargarDatosUsuario()
+        #region Mostrar y esconder los botones de cada SubMenu cuando se hace click en él
+        private void btnVentas_Click(object sender, EventArgs e)
         {
-            string nombreUsuario = UserCache.nombreUsuario;
-            lblNombreUsuario.Text = nombreUsuario;
+            showSubMenu(panelVentas);
         }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelCompras);
+        }
+        private void btnCaja_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelCaja);
+        }
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelInventario);
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelReportes);
+        }
+
+        private void btnEntidades_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelEntidades);
+        }
+
+        private void btnConfiguraciones_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelConfiguraciones);
+        }
+        private void hideSubMenu() // ESCONDE TODOS LOS PANELES
+        {
+            if (panelVentas.Visible == true)
+                panelVentas.Visible = false;
+            if (panelReportes.Visible == true)
+                panelReportes.Visible = false;
+            if (panelCompras.Visible == true)
+                panelCompras.Visible = false;
+            if (panelEntidades.Visible == true)
+                panelEntidades.Visible = false;
+            if (panelInventario.Visible == true)
+                panelInventario.Visible = false;
+            if (panelConfiguraciones.Visible == true)
+                panelConfiguraciones.Visible = false;
+
+        }
+
+        private void showSubMenu(Panel subMenu) // MUESTRA EL PANEL DESEADO
+        {
+            if (subMenu.Visible == false)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+                subMenu.Visible = false;
+        }
+
         #endregion
 
         #region Cerrar Sesion
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Está seguro de Cerrar Sesion", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 this.Close();
         }
         #endregion
 
+        #region Abrir un formulario
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()
         {
             Form formulario;
@@ -245,12 +267,14 @@ namespace Presentation
                 formulario.BringToFront();
             }
         }
+        #endregion
 
+        #region Cerrar un formulario
         private void CloseForms(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms["FVerUsuario"] == null)
             {
-                btnVerUsuarios.BackColor = Color.White;
+                btnUsuarios.BackColor = Color.White;
             }
             //if (Application.OpenForms["Form2"] == null)
             //{
@@ -262,27 +286,34 @@ namespace Presentation
             //    sub3Button1.BackColor = Color.White;
             //}
         }
+        #endregion
 
-        private void button16_Click(object sender, EventArgs e)
+        #region Menu Ventas
+        private void btnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FUsuariosVer>();
-            btnVerUsuarios.BackColor = Color.FromArgb(12, 61, 92);
+            btnUsuarios.BackColor = Color.FromArgb(12, 61, 92);
         }
 
-        private void FMenu_Load(object sender, EventArgs e)
+        private void btnNuevaVentaCotizacion_Click(object sender, EventArgs e)
         {
-            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void btnListaVentas_Click(object sender, EventArgs e)
         {
-            bool testBool = false;
 
-            int testInt = testBool ? 1 : 0;
-
-            MessageBox.Show("" + testInt);
         }
 
+        private void btnListaCotizaciones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVPorCobrar_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }
