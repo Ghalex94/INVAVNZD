@@ -149,7 +149,7 @@ namespace Presentation
                     }
                     else
                     {
-                        msgError("Usuario y/o Contraseña incorrectas. \nPor favor intente nuevamente.");
+                        msgError("Usuario y/o Contraseña incorrectas. \nPor favor intente nuevamente.\nNota*: PUEDE QUE SU CUENTA ESTE DESHABILITADA");
                         txtuser.Focus();
                         //tuser.Clear();
                         //txtpass.UseSystemPasswordChar = false;

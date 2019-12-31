@@ -23,6 +23,13 @@ namespace Domain
         public void InsertarUsuario(string nombre, string usu, string pass, int tipo, string permisos, int estado) {
             userdao.insertarUsuario(nombre,usu,pass,tipo,permisos,estado);
         }
-   
+        public void ActualizarUsuario(string nombre, string usu, string pass, int tipo, string permisos,int id)
+        {
+            userdao.actualizarUsuario(nombre, usu, pass, tipo, permisos, id);
+        }
+        public void DeshabilitarUsuario(int id)
+        {
+            userdao.deshabilitarUsuario(id);
+        }
     }   
 }  

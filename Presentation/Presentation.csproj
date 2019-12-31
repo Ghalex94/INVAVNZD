@@ -59,6 +59,12 @@
     <Compile Include="FMenu.Designer.cs">
       <DependentUpon>FMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FUsuarioActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FUsuarioActualizar.Designer.cs">
+      <DependentUpon>FUsuarioActualizar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FUsuarioCrear.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FUsuarioActualizar.resx">
+      <DependentUpon>FUsuarioActualizar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FUsuarioCrear.resx">
       <DependentUpon>FUsuarioCrear.cs</DependentUpon>

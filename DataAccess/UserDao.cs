@@ -20,7 +20,7 @@ namespace DataAccess
                 using (var command = new MySqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "select * from tb_usuario where usu = @user and  contra = @pass";
+                    command.CommandText = "select * from tb_usuario where usu = @user and  contra = @pass and estado = 1";
                     command.Parameters.AddWithValue("@user", user);
                     command.Parameters.AddWithValue("@pass", pass);
                     command.CommandType = System.Data.CommandType.Text;
@@ -98,5 +98,59 @@ namespace DataAccess
                 }              
             }
         }
+
+        public void actualizarUsuario(string nombre, string usu, string pass, int tipo, string permisos,int id)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand())
+                {
+                    try
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "update tb_usuario SET nombre_usu = @nombre,usu = @usu,contra = @pass,tipo = @tipo,permisos = @permisos WHERE id_usu = @id";
+                        command.Parameters.AddWithValue("@nombre", nombre);
+                        command.Parameters.AddWithValue("@usu", usu);
+                        command.Parameters.AddWithValue("@pass", pass);
+                        command.Parameters.AddWithValue("@tipo", tipo);
+                        command.Parameters.AddWithValue("@permisos", permisos);                       
+                        command.Parameters.AddWithValue("@id", id);
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Registro Actualizado con Exito");
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error: " + error);
+                    }
+                }
+            }
+        }
+
+        public void deshabilitarUsuario(int id)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand())
+                {
+                    try
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "update tb_usuario SET estado = 0 WHERE id_usu = @id";                      
+                        command.Parameters.AddWithValue("@id", id);
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Usuario Deshabilitado");
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error: " + error);
+                    }
+                }
+            }
+        }
+
     }
 }
