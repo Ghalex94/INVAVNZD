@@ -73,7 +73,7 @@
             this.txtuser.Location = new System.Drawing.Point(311, 91);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(403, 19);
-            this.txtuser.TabIndex = 1;
+            this.txtuser.TabIndex = 0;
             this.txtuser.Text = "USUARIO";
             this.txtuser.Enter += new System.EventHandler(this.txtuser_Enter);
             this.txtuser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtuser_KeyPress);
@@ -88,7 +88,7 @@
             this.txtpass.Location = new System.Drawing.Point(311, 165);
             this.txtpass.Name = "txtpass";
             this.txtpass.Size = new System.Drawing.Size(403, 19);
-            this.txtpass.TabIndex = 2;
+            this.txtpass.TabIndex = 1;
             this.txtpass.Text = "CONTRASEÑA";
             this.txtpass.Enter += new System.EventHandler(this.txtpass_Enter);
             this.txtpass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpass_KeyPress);
@@ -117,7 +117,7 @@
             this.btnlogin.Location = new System.Drawing.Point(311, 267);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(403, 46);
-            this.btnlogin.TabIndex = 3;
+            this.btnlogin.TabIndex = 2;
             this.btnlogin.Text = "ACCEDER";
             this.btnlogin.UseVisualStyleBackColor = false;
             this.btnlogin.Click += new System.EventHandler(this.btnlogin_Click);
@@ -169,7 +169,7 @@
             this.btnMinimizarr.Name = "btnMinimizarr";
             this.btnMinimizarr.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnMinimizarr.Size = new System.Drawing.Size(35, 24);
-            this.btnMinimizarr.TabIndex = 4;
+            this.btnMinimizarr.TabIndex = 3;
             this.btnMinimizarr.Text = "-";
             this.btnMinimizarr.UseCompatibleTextRendering = true;
             this.btnMinimizarr.UseVisualStyleBackColor = false;
@@ -190,7 +190,7 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnSalir.Size = new System.Drawing.Size(35, 24);
-            this.btnSalir.TabIndex = 0;
+            this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "X";
             this.btnSalir.UseCompatibleTextRendering = true;
             this.btnSalir.UseVisualStyleBackColor = false;

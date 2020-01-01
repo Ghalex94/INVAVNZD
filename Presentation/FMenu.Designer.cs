@@ -37,17 +37,17 @@
             this.btnTiposPago = new System.Windows.Forms.Button();
             this.btnMonedas = new System.Windows.Forms.Button();
             this.btnConfiguraciones = new System.Windows.Forms.Button();
+            this.panelReportes = new System.Windows.Forms.Panel();
+            this.btnReporte3 = new System.Windows.Forms.Button();
+            this.btnReporte2 = new System.Windows.Forms.Button();
+            this.btnReporte1 = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.panelEntidades = new System.Windows.Forms.Panel();
             this.btnDistribuidores = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnPersonal = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnEntidades = new System.Windows.Forms.Button();
-            this.panelReportes = new System.Windows.Forms.Panel();
-            this.btnReporte3 = new System.Windows.Forms.Button();
-            this.btnReporte2 = new System.Windows.Forms.Button();
-            this.btnReporte1 = new System.Windows.Forms.Button();
-            this.btnReportes = new System.Windows.Forms.Button();
             this.panelInventario = new System.Windows.Forms.Panel();
             this.btnHistorialMovimientos = new System.Windows.Forms.Button();
             this.btnLocalesAlmacenes = new System.Windows.Forms.Button();
@@ -81,8 +81,8 @@
             this.panelLateralIzq.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelConfiguraciones.SuspendLayout();
-            this.panelEntidades.SuspendLayout();
             this.panelReportes.SuspendLayout();
+            this.panelEntidades.SuspendLayout();
             this.panelInventario.SuspendLayout();
             this.panelCaja.SuspendLayout();
             this.panelCompras.SuspendLayout();
@@ -100,7 +100,7 @@
             this.panelBarraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBarraSuperior.Location = new System.Drawing.Point(0, 0);
             this.panelBarraSuperior.Name = "panelBarraSuperior";
-            this.panelBarraSuperior.Size = new System.Drawing.Size(898, 32);
+            this.panelBarraSuperior.Size = new System.Drawing.Size(898, 40);
             this.panelBarraSuperior.TabIndex = 0;
             this.panelBarraSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -115,10 +115,10 @@
             this.btnMinimizarr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizarr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizarr.ForeColor = System.Drawing.Color.White;
-            this.btnMinimizarr.Location = new System.Drawing.Point(828, 0);
+            this.btnMinimizarr.Location = new System.Drawing.Point(817, 0);
             this.btnMinimizarr.Name = "btnMinimizarr";
             this.btnMinimizarr.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnMinimizarr.Size = new System.Drawing.Size(35, 32);
+            this.btnMinimizarr.Size = new System.Drawing.Size(40, 40);
             this.btnMinimizarr.TabIndex = 10;
             this.btnMinimizarr.Text = "-";
             this.btnMinimizarr.UseCompatibleTextRendering = true;
@@ -136,10 +136,10 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(863, 0);
+            this.btnSalir.Location = new System.Drawing.Point(858, 0);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnSalir.Size = new System.Drawing.Size(35, 32);
+            this.btnSalir.Size = new System.Drawing.Size(40, 40);
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "X";
             this.btnSalir.UseCompatibleTextRendering = true;
@@ -154,9 +154,9 @@
             this.panelLateralIzq.Controls.Add(this.btnCerrarSesion);
             this.panelLateralIzq.Controls.Add(this.panelInformativo);
             this.panelLateralIzq.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLateralIzq.Location = new System.Drawing.Point(0, 32);
+            this.panelLateralIzq.Location = new System.Drawing.Point(0, 40);
             this.panelLateralIzq.Name = "panelLateralIzq";
-            this.panelLateralIzq.Size = new System.Drawing.Size(233, 480);
+            this.panelLateralIzq.Size = new System.Drawing.Size(233, 472);
             this.panelLateralIzq.TabIndex = 1;
             // 
             // panelMenu
@@ -180,7 +180,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMenu.Location = new System.Drawing.Point(0, 148);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(233, 287);
+            this.panelMenu.Size = new System.Drawing.Size(233, 279);
             this.panelMenu.TabIndex = 2;
             // 
             // panelConfiguraciones
@@ -247,6 +247,88 @@
             this.btnConfiguraciones.UseVisualStyleBackColor = false;
             this.btnConfiguraciones.Click += new System.EventHandler(this.btnConfiguraciones_Click);
             // 
+            // panelReportes
+            // 
+            this.panelReportes.BackColor = System.Drawing.Color.Gray;
+            this.panelReportes.Controls.Add(this.btnReporte3);
+            this.panelReportes.Controls.Add(this.btnReporte2);
+            this.panelReportes.Controls.Add(this.btnReporte1);
+            this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelReportes.Location = new System.Drawing.Point(0, 989);
+            this.panelReportes.Name = "panelReportes";
+            this.panelReportes.Size = new System.Drawing.Size(216, 122);
+            this.panelReportes.TabIndex = 15;
+            this.panelReportes.Visible = false;
+            // 
+            // btnReporte3
+            // 
+            this.btnReporte3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnReporte3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporte3.FlatAppearance.BorderSize = 0;
+            this.btnReporte3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnReporte3.Location = new System.Drawing.Point(0, 70);
+            this.btnReporte3.Name = "btnReporte3";
+            this.btnReporte3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReporte3.Size = new System.Drawing.Size(216, 31);
+            this.btnReporte3.TabIndex = 2;
+            this.btnReporte3.Text = "Reporte 3";
+            this.btnReporte3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporte3.UseVisualStyleBackColor = false;
+            // 
+            // btnReporte2
+            // 
+            this.btnReporte2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnReporte2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporte2.FlatAppearance.BorderSize = 0;
+            this.btnReporte2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnReporte2.Location = new System.Drawing.Point(0, 35);
+            this.btnReporte2.Name = "btnReporte2";
+            this.btnReporte2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReporte2.Size = new System.Drawing.Size(216, 35);
+            this.btnReporte2.TabIndex = 1;
+            this.btnReporte2.Text = "Reporte 2";
+            this.btnReporte2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporte2.UseVisualStyleBackColor = false;
+            // 
+            // btnReporte1
+            // 
+            this.btnReporte1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnReporte1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReporte1.FlatAppearance.BorderSize = 0;
+            this.btnReporte1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnReporte1.Location = new System.Drawing.Point(0, 0);
+            this.btnReporte1.Name = "btnReporte1";
+            this.btnReporte1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReporte1.Size = new System.Drawing.Size(216, 35);
+            this.btnReporte1.TabIndex = 0;
+            this.btnReporte1.Text = "Reporte 1 ";
+            this.btnReporte1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporte1.UseVisualStyleBackColor = false;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(239)))));
+            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnReportes.Location = new System.Drawing.Point(0, 949);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(216, 40);
+            this.btnReportes.TabIndex = 14;
+            this.btnReportes.Text = "Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.UseVisualStyleBackColor = false;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
             // panelEntidades
             // 
             this.panelEntidades.BackColor = System.Drawing.Color.Gray;
@@ -255,7 +337,7 @@
             this.panelEntidades.Controls.Add(this.btnPersonal);
             this.panelEntidades.Controls.Add(this.btnUsuarios);
             this.panelEntidades.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEntidades.Location = new System.Drawing.Point(0, 955);
+            this.panelEntidades.Location = new System.Drawing.Point(0, 793);
             this.panelEntidades.Name = "panelEntidades";
             this.panelEntidades.Size = new System.Drawing.Size(216, 156);
             this.panelEntidades.TabIndex = 17;
@@ -338,7 +420,7 @@
             this.btnEntidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntidades.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnEntidades.Location = new System.Drawing.Point(0, 915);
+            this.btnEntidades.Location = new System.Drawing.Point(0, 753);
             this.btnEntidades.Name = "btnEntidades";
             this.btnEntidades.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEntidades.Size = new System.Drawing.Size(216, 40);
@@ -347,88 +429,6 @@
             this.btnEntidades.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEntidades.UseVisualStyleBackColor = false;
             this.btnEntidades.Click += new System.EventHandler(this.btnEntidades_Click);
-            // 
-            // panelReportes
-            // 
-            this.panelReportes.BackColor = System.Drawing.Color.Gray;
-            this.panelReportes.Controls.Add(this.btnReporte3);
-            this.panelReportes.Controls.Add(this.btnReporte2);
-            this.panelReportes.Controls.Add(this.btnReporte1);
-            this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportes.Location = new System.Drawing.Point(0, 793);
-            this.panelReportes.Name = "panelReportes";
-            this.panelReportes.Size = new System.Drawing.Size(216, 122);
-            this.panelReportes.TabIndex = 15;
-            this.panelReportes.Visible = false;
-            // 
-            // btnReporte3
-            // 
-            this.btnReporte3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnReporte3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporte3.FlatAppearance.BorderSize = 0;
-            this.btnReporte3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporte3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporte3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnReporte3.Location = new System.Drawing.Point(0, 70);
-            this.btnReporte3.Name = "btnReporte3";
-            this.btnReporte3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnReporte3.Size = new System.Drawing.Size(216, 31);
-            this.btnReporte3.TabIndex = 2;
-            this.btnReporte3.Text = "Reporte 3";
-            this.btnReporte3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporte3.UseVisualStyleBackColor = false;
-            // 
-            // btnReporte2
-            // 
-            this.btnReporte2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnReporte2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporte2.FlatAppearance.BorderSize = 0;
-            this.btnReporte2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporte2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporte2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnReporte2.Location = new System.Drawing.Point(0, 35);
-            this.btnReporte2.Name = "btnReporte2";
-            this.btnReporte2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnReporte2.Size = new System.Drawing.Size(216, 35);
-            this.btnReporte2.TabIndex = 1;
-            this.btnReporte2.Text = "Reporte 2";
-            this.btnReporte2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporte2.UseVisualStyleBackColor = false;
-            // 
-            // btnReporte1
-            // 
-            this.btnReporte1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnReporte1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReporte1.FlatAppearance.BorderSize = 0;
-            this.btnReporte1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporte1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReporte1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnReporte1.Location = new System.Drawing.Point(0, 0);
-            this.btnReporte1.Name = "btnReporte1";
-            this.btnReporte1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnReporte1.Size = new System.Drawing.Size(216, 35);
-            this.btnReporte1.TabIndex = 0;
-            this.btnReporte1.Text = "Reporte 1 ";
-            this.btnReporte1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReporte1.UseVisualStyleBackColor = false;
-            // 
-            // btnReportes
-            // 
-            this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(239)))));
-            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnReportes.Location = new System.Drawing.Point(0, 753);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(216, 40);
-            this.btnReportes.TabIndex = 14;
-            this.btnReportes.Text = "Reportes";
-            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.UseVisualStyleBackColor = false;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // panelInventario
             // 
@@ -823,7 +823,7 @@
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 435);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 427);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(233, 45);
             this.btnCerrarSesion.TabIndex = 1;
@@ -878,9 +878,9 @@
             // panelFormulario
             // 
             this.panelFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFormulario.Location = new System.Drawing.Point(233, 32);
+            this.panelFormulario.Location = new System.Drawing.Point(233, 40);
             this.panelFormulario.Name = "panelFormulario";
-            this.panelFormulario.Size = new System.Drawing.Size(665, 480);
+            this.panelFormulario.Size = new System.Drawing.Size(665, 472);
             this.panelFormulario.TabIndex = 2;
             // 
             // FMenu
@@ -898,8 +898,8 @@
             this.panelLateralIzq.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             this.panelConfiguraciones.ResumeLayout(false);
-            this.panelEntidades.ResumeLayout(false);
             this.panelReportes.ResumeLayout(false);
+            this.panelEntidades.ResumeLayout(false);
             this.panelInventario.ResumeLayout(false);
             this.panelCaja.ResumeLayout(false);
             this.panelCompras.ResumeLayout(false);
