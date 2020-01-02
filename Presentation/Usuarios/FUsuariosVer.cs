@@ -129,6 +129,12 @@ namespace Presentation
         {
             Form crear = new FUsuarioCrear();
             crear.ShowDialog();
+            crear.FormClosed += cargartable;
+        }
+        private void cargartable(object sender, FormClosedEventArgs e)
+        {
+            UserModel user = new UserModel();
+            user.MostrarUSuarios(dgvUsuarios);
         }
         private void btnCerrarVentana_Click(object sender, EventArgs e)
         {
@@ -136,13 +142,5 @@ namespace Presentation
         }
         #endregion
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //string valorCelda = dgvUsuarios.Rows[1].Cells[0].Value.ToString();
-            string valorCelda = dgvUsuarios[3, 1].Value.ToString();
-            MessageBox.Show(valorCelda);
-
-        }
     }
 }

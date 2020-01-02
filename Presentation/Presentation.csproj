@@ -59,22 +59,22 @@
     <Compile Include="FMenu.Designer.cs">
       <DependentUpon>FMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FUsuarioActualizar.cs">
+    <Compile Include="Usuarios\FUsuarioActualizar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FUsuarioActualizar.Designer.cs">
+    <Compile Include="Usuarios\FUsuarioActualizar.Designer.cs">
       <DependentUpon>FUsuarioActualizar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FUsuarioCrear.cs">
+    <Compile Include="Usuarios\FUsuarioCrear.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FUsuarioCrear.Designer.cs">
+    <Compile Include="Usuarios\FUsuarioCrear.Designer.cs">
       <DependentUpon>FUsuarioCrear.cs</DependentUpon>
     </Compile>
-    <Compile Include="FUsuariosVer.cs">
+    <Compile Include="Usuarios\FUsuariosVer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FUsuariosVer.Designer.cs">
+    <Compile Include="Usuarios\FUsuariosVer.Designer.cs">
       <DependentUpon>FUsuariosVer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -85,13 +85,13 @@
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FUsuarioActualizar.resx">
+    <EmbeddedResource Include="Usuarios\FUsuarioActualizar.resx">
       <DependentUpon>FUsuarioActualizar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FUsuarioCrear.resx">
+    <EmbeddedResource Include="Usuarios\FUsuarioCrear.resx">
       <DependentUpon>FUsuarioCrear.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FUsuariosVer.resx">
+    <EmbeddedResource Include="Usuarios\FUsuariosVer.resx">
       <DependentUpon>FUsuariosVer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

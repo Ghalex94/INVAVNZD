@@ -30,6 +30,15 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chBoxCaja = new System.Windows.Forms.CheckBox();
+            this.txtPass2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.chBoxConfiguraciones = new System.Windows.Forms.CheckBox();
+            this.chBoxReportes = new System.Windows.Forms.CheckBox();
+            this.chBoxEntidades = new System.Windows.Forms.CheckBox();
+            this.chBoxInventario = new System.Windows.Forms.CheckBox();
+            this.chBoxCompras = new System.Windows.Forms.CheckBox();
+            this.chBoxVentas = new System.Windows.Forms.CheckBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.cbTipoUsuario = new System.Windows.Forms.ComboBox();
             this.txtPass = new System.Windows.Forms.TextBox();
@@ -41,12 +50,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.chBoxVentas = new System.Windows.Forms.CheckBox();
-            this.chBoxCompras = new System.Windows.Forms.CheckBox();
-            this.chBoxReportes = new System.Windows.Forms.CheckBox();
-            this.chBoxClientes = new System.Windows.Forms.CheckBox();
-            this.chBoxUsuarios = new System.Windows.Forms.CheckBox();
-            this.chBoxConfiguraciones = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,10 +63,13 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.chBoxCaja);
+            this.panel2.Controls.Add(this.txtPass2);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.chBoxConfiguraciones);
-            this.panel2.Controls.Add(this.chBoxUsuarios);
-            this.panel2.Controls.Add(this.chBoxClientes);
             this.panel2.Controls.Add(this.chBoxReportes);
+            this.panel2.Controls.Add(this.chBoxEntidades);
+            this.panel2.Controls.Add(this.chBoxInventario);
             this.panel2.Controls.Add(this.chBoxCompras);
             this.panel2.Controls.Add(this.chBoxVentas);
             this.panel2.Controls.Add(this.btnRegistrar);
@@ -83,6 +89,109 @@
             this.panel2.Size = new System.Drawing.Size(649, 506);
             this.panel2.TabIndex = 1;
             // 
+            // chBoxCaja
+            // 
+            this.chBoxCaja.AutoSize = true;
+            this.chBoxCaja.Enabled = false;
+            this.chBoxCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBoxCaja.Location = new System.Drawing.Point(102, 377);
+            this.chBoxCaja.Name = "chBoxCaja";
+            this.chBoxCaja.Size = new System.Drawing.Size(57, 22);
+            this.chBoxCaja.TabIndex = 27;
+            this.chBoxCaja.Text = "Caja";
+            this.chBoxCaja.UseVisualStyleBackColor = true;
+            // 
+            // txtPass2
+            // 
+            this.txtPass2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass2.Location = new System.Drawing.Point(98, 249);
+            this.txtPass2.Name = "txtPass2";
+            this.txtPass2.Size = new System.Drawing.Size(443, 26);
+            this.txtPass2.TabIndex = 26;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DimGray;
+            this.label7.Location = new System.Drawing.Point(94, 226);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(186, 20);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Repita su contraseña:";
+            // 
+            // chBoxConfiguraciones
+            // 
+            this.chBoxConfiguraciones.AutoSize = true;
+            this.chBoxConfiguraciones.Enabled = false;
+            this.chBoxConfiguraciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBoxConfiguraciones.Location = new System.Drawing.Point(269, 407);
+            this.chBoxConfiguraciones.Name = "chBoxConfiguraciones";
+            this.chBoxConfiguraciones.Size = new System.Drawing.Size(135, 22);
+            this.chBoxConfiguraciones.TabIndex = 24;
+            this.chBoxConfiguraciones.Text = "Configuraciones";
+            this.chBoxConfiguraciones.UseVisualStyleBackColor = true;
+            // 
+            // chBoxReportes
+            // 
+            this.chBoxReportes.AutoSize = true;
+            this.chBoxReportes.Enabled = false;
+            this.chBoxReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBoxReportes.Location = new System.Drawing.Point(269, 377);
+            this.chBoxReportes.Name = "chBoxReportes";
+            this.chBoxReportes.Size = new System.Drawing.Size(88, 22);
+            this.chBoxReportes.TabIndex = 23;
+            this.chBoxReportes.Text = "Reportes";
+            this.chBoxReportes.UseVisualStyleBackColor = true;
+            // 
+            // chBoxEntidades
+            // 
+            this.chBoxEntidades.AutoSize = true;
+            this.chBoxEntidades.Enabled = false;
+            this.chBoxEntidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBoxEntidades.Location = new System.Drawing.Point(269, 349);
+            this.chBoxEntidades.Name = "chBoxEntidades";
+            this.chBoxEntidades.Size = new System.Drawing.Size(92, 22);
+            this.chBoxEntidades.TabIndex = 22;
+            this.chBoxEntidades.Text = "Entidades";
+            this.chBoxEntidades.UseVisualStyleBackColor = true;
+            // 
+            // chBoxInventario
+            // 
+            this.chBoxInventario.AutoSize = true;
+            this.chBoxInventario.Enabled = false;
+            this.chBoxInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBoxInventario.Location = new System.Drawing.Point(102, 407);
+            this.chBoxInventario.Name = "chBoxInventario";
+            this.chBoxInventario.Size = new System.Drawing.Size(90, 22);
+            this.chBoxInventario.TabIndex = 21;
+            this.chBoxInventario.Text = "Inventario";
+            this.chBoxInventario.UseVisualStyleBackColor = true;
+            // 
+            // chBoxCompras
+            // 
+            this.chBoxCompras.AutoSize = true;
+            this.chBoxCompras.Enabled = false;
+            this.chBoxCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBoxCompras.Location = new System.Drawing.Point(102, 349);
+            this.chBoxCompras.Name = "chBoxCompras";
+            this.chBoxCompras.Size = new System.Drawing.Size(89, 22);
+            this.chBoxCompras.TabIndex = 20;
+            this.chBoxCompras.Text = "Compras";
+            this.chBoxCompras.UseVisualStyleBackColor = true;
+            // 
+            // chBoxVentas
+            // 
+            this.chBoxVentas.AutoSize = true;
+            this.chBoxVentas.Enabled = false;
+            this.chBoxVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBoxVentas.Location = new System.Drawing.Point(102, 325);
+            this.chBoxVentas.Name = "chBoxVentas";
+            this.chBoxVentas.Size = new System.Drawing.Size(72, 22);
+            this.chBoxVentas.TabIndex = 19;
+            this.chBoxVentas.Text = "Ventas";
+            this.chBoxVentas.UseVisualStyleBackColor = true;
+            // 
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -98,13 +207,15 @@
             // 
             // cbTipoUsuario
             // 
+            this.cbTipoUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipoUsuario.FormattingEnabled = true;
             this.cbTipoUsuario.Items.AddRange(new object[] {
             "SuperAdministrador",
             "Administrador",
             "Vendedor"});
-            this.cbTipoUsuario.Location = new System.Drawing.Point(98, 241);
+            this.cbTipoUsuario.Location = new System.Drawing.Point(359, 319);
             this.cbTipoUsuario.Name = "cbTipoUsuario";
             this.cbTipoUsuario.Size = new System.Drawing.Size(182, 28);
             this.cbTipoUsuario.TabIndex = 16;
@@ -139,7 +250,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(94, 280);
+            this.label6.Location = new System.Drawing.Point(94, 296);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 20);
             this.label6.TabIndex = 12;
@@ -150,7 +261,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(94, 218);
+            this.label5.Location = new System.Drawing.Point(355, 296);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(135, 20);
             this.label5.TabIndex = 10;
@@ -200,78 +311,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "CREAR USUARIO";
             // 
-            // chBoxVentas
-            // 
-            this.chBoxVentas.AutoSize = true;
-            this.chBoxVentas.Enabled = false;
-            this.chBoxVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBoxVentas.Location = new System.Drawing.Point(112, 301);
-            this.chBoxVentas.Name = "chBoxVentas";
-            this.chBoxVentas.Size = new System.Drawing.Size(72, 22);
-            this.chBoxVentas.TabIndex = 19;
-            this.chBoxVentas.Text = "Ventas";
-            this.chBoxVentas.UseVisualStyleBackColor = true;
-            // 
-            // chBoxCompras
-            // 
-            this.chBoxCompras.AutoSize = true;
-            this.chBoxCompras.Enabled = false;
-            this.chBoxCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBoxCompras.Location = new System.Drawing.Point(112, 325);
-            this.chBoxCompras.Name = "chBoxCompras";
-            this.chBoxCompras.Size = new System.Drawing.Size(89, 22);
-            this.chBoxCompras.TabIndex = 20;
-            this.chBoxCompras.Text = "Compras";
-            this.chBoxCompras.UseVisualStyleBackColor = true;
-            // 
-            // chBoxReportes
-            // 
-            this.chBoxReportes.AutoSize = true;
-            this.chBoxReportes.Enabled = false;
-            this.chBoxReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBoxReportes.Location = new System.Drawing.Point(112, 349);
-            this.chBoxReportes.Name = "chBoxReportes";
-            this.chBoxReportes.Size = new System.Drawing.Size(88, 22);
-            this.chBoxReportes.TabIndex = 21;
-            this.chBoxReportes.Text = "Reportes";
-            this.chBoxReportes.UseVisualStyleBackColor = true;
-            // 
-            // chBoxClientes
-            // 
-            this.chBoxClientes.AutoSize = true;
-            this.chBoxClientes.Enabled = false;
-            this.chBoxClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBoxClientes.Location = new System.Drawing.Point(112, 373);
-            this.chBoxClientes.Name = "chBoxClientes";
-            this.chBoxClientes.Size = new System.Drawing.Size(80, 22);
-            this.chBoxClientes.TabIndex = 22;
-            this.chBoxClientes.Text = "Clientes";
-            this.chBoxClientes.UseVisualStyleBackColor = true;
-            // 
-            // chBoxUsuarios
-            // 
-            this.chBoxUsuarios.AutoSize = true;
-            this.chBoxUsuarios.Enabled = false;
-            this.chBoxUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBoxUsuarios.Location = new System.Drawing.Point(112, 397);
-            this.chBoxUsuarios.Name = "chBoxUsuarios";
-            this.chBoxUsuarios.Size = new System.Drawing.Size(87, 22);
-            this.chBoxUsuarios.TabIndex = 23;
-            this.chBoxUsuarios.Text = "Usuarios";
-            this.chBoxUsuarios.UseVisualStyleBackColor = true;
-            // 
-            // chBoxConfiguraciones
-            // 
-            this.chBoxConfiguraciones.AutoSize = true;
-            this.chBoxConfiguraciones.Enabled = false;
-            this.chBoxConfiguraciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBoxConfiguraciones.Location = new System.Drawing.Point(112, 421);
-            this.chBoxConfiguraciones.Name = "chBoxConfiguraciones";
-            this.chBoxConfiguraciones.Size = new System.Drawing.Size(135, 22);
-            this.chBoxConfiguraciones.TabIndex = 24;
-            this.chBoxConfiguraciones.Text = "Configuraciones";
-            this.chBoxConfiguraciones.UseVisualStyleBackColor = true;
-            // 
             // FUsuarioCrear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,7 +320,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "FUsuarioCrear";
             this.Text = "FUsuarioCrear";
-            this.Load += new System.EventHandler(this.FUsuarioCrear_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -303,11 +341,14 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.CheckBox chBoxUsuarios;
-        private System.Windows.Forms.CheckBox chBoxClientes;
         private System.Windows.Forms.CheckBox chBoxReportes;
+        private System.Windows.Forms.CheckBox chBoxEntidades;
+        private System.Windows.Forms.CheckBox chBoxInventario;
         private System.Windows.Forms.CheckBox chBoxCompras;
         private System.Windows.Forms.CheckBox chBoxVentas;
         private System.Windows.Forms.CheckBox chBoxConfiguraciones;
+        private System.Windows.Forms.TextBox txtPass2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox chBoxCaja;
     }
 }

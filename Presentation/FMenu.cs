@@ -208,19 +208,13 @@ namespace Presentation
         }
         private void hideSubMenu() // ESCONDE TODOS LOS PANELES
         {
-            if (panelVentas.Visible == true)
-                panelVentas.Visible = false;
-            if (panelReportes.Visible == true)
-                panelReportes.Visible = false;
-            if (panelCompras.Visible == true)
-                panelCompras.Visible = false;
-            if (panelEntidades.Visible == true)
-                panelEntidades.Visible = false;
-            if (panelInventario.Visible == true)
-                panelInventario.Visible = false;
-            if (panelConfiguraciones.Visible == true)
-                panelConfiguraciones.Visible = false;
-
+            panelVentas.Visible = false;
+            panelCompras.Visible = false;
+            panelCaja.Visible = false;
+            panelReportes.Visible = false;
+            panelEntidades.Visible = false;
+            panelInventario.Visible = false;
+            panelConfiguraciones.Visible = false;
         }
 
         private void showSubMenu(Panel subMenu) // MUESTRA EL PANEL DESEADO
@@ -233,7 +227,6 @@ namespace Presentation
             else
                 subMenu.Visible = false;
         }
-
         #endregion
 
         #region Cerrar Sesion
