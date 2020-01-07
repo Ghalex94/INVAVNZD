@@ -833,7 +833,7 @@
             // 
             // panelInformativo
             // 
-            this.panelInformativo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelInformativo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(239)))));
             this.panelInformativo.Controls.Add(this.lblNombreUsuario);
             this.panelInformativo.Controls.Add(this.picbxMarca);
             this.panelInformativo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -855,7 +855,7 @@
             // 
             // picbxMarca
             // 
-            this.picbxMarca.Image = global::Presentation.Properties.Resources.Logo_Byte_x_Byte_05;
+            this.picbxMarca.Image = global::Presentation.Properties.Resources.Logo_png;
             this.picbxMarca.Location = new System.Drawing.Point(6, 2);
             this.picbxMarca.Name = "picbxMarca";
             this.picbxMarca.Size = new System.Drawing.Size(221, 99);

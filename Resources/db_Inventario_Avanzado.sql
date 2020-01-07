@@ -135,7 +135,7 @@ create table tb_usuario(
     nombre_usu			varchar(150), -- Nombre completo del usuario
     usu					varchar(30), -- Usuario
     contra				varchar(30), -- Contraseña
-    tipo				tinyint, -- Tipo de Usuario
+    tipo				tinyint, -- Tipo de Usuario -- 0superadmin 1admin 2vendedor
     permisos			varchar(50), -- 1,2,6
     estado				tinyint
 );
@@ -221,3 +221,26 @@ create table tb_caja_grande_registros(
     foreign key (id_caja_chica) references tb_caja_chica(id_caja_chica),
     foreign key (id_caja_grande) references tb_caja_grande(id_caja_grande)
 );
+
+-- EJECUTAR HASTA AQUI
+
+-- PRUEBAS
+use db_inventario_avanzado;
+select * from tb_usuario;
+
+SELECT distinct id_usu, nombre_usu, usu, contra, tipo,
+case 
+when tipo = 0 then 'Super Administrador'
+when tipo = 1 then 'Administrador'
+when tipo = 2 then 'Vendedor'
+end as tipo2,
+permisos, estado
+from tb_usuario
+where estado = 1;
+
+select distinct ventanilla, case 	when estado = 2 then 'No atendidos'
+									when estado = 3 then 'Atendidos'
+									else null
+                                    end as Detalle, count(*) from tb_colas 
+where estado = 2 or estado = 3						
+group by ventanilla,estado;

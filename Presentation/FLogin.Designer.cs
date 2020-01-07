@@ -56,10 +56,10 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Presentation.Properties.Resources.Loggin;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Image = global::Presentation.Properties.Resources.Logo_png;
+            this.pictureBox3.Location = new System.Drawing.Point(12, -1);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(251, 331);
+            this.pictureBox3.Size = new System.Drawing.Size(231, 331);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
