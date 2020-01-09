@@ -17,13 +17,20 @@ namespace Presentation
         public static FUsuariosVer f1;     
         public FUsuariosVer()
         {
-            InitializeComponent();
             FUsuariosVer.f1 = this;
-            UserModel user = new UserModel();
-            user.MostrarUSuarios(dgvUsuarios);
+            InitializeComponent();
+            
         }
+
+        public void CargarTabla()
+        {
+            UserModel user = new UserModel();
+            user.MostrarUSuarios(dgvUsuarios);          
+        }
+
         private void FUsuariosVer_Load(object sender, EventArgs e)
         {
+            CargarTabla();
             // Agregar botones editar, eliminar
             DataGridViewButtonColumn btnedit = new DataGridViewButtonColumn();
             DataGridViewButtonColumn btneliminar = new DataGridViewButtonColumn();
@@ -53,32 +60,21 @@ namespace Presentation
             Column = dgvUsuarios.Columns[7];
             Column.Visible = false;
 
+            
+
         }
         #endregion
 
         public void seleccionarUsuario(string usuario)
         {
-            //MessageBox.Show(usuario);
-            for (int fila = 0; fila < dgvUsuarios.Rows.Count - 1; fila++)
+            dgvUsuarios.ClearSelection();
+            foreach (DataGridViewRow row in dgvUsuarios.Rows)
             {
-                if (usuario == dgvUsuarios.Rows[fila].Cells[2].Value.ToString())
+                if (usuario == row.Cells["usu"].Value.ToString())
                 {
-                    dgvUsuarios.Rows[fila].Selected = true;
-                    fila = dgvUsuarios.Rows.Count;
+                    dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    row.Selected = true;
                 }
-
-
-                //for (int col = 0; col < dgvUsuarios.Rows[fila].Cells.Count; col++)
-                //{
-                //    //string usuariodata = dgvUsuarios.CurrentRow.Cells[4].Value.ToString();
-
-                //    if (usuario == dgvUsuarios.Rows[fila].Cells[2].Value.ToString())
-                //    {
-                //        dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                //        dgvUsuarios.Rows[fila].Selected = true;
-                //        MessageBox.Show(fila+"");
-                //    }
-                //}
             }
         }
 
@@ -119,12 +115,12 @@ namespace Presentation
                 //string nombre, codigo;
                 if (this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Editar")
                 {
-                    int id = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
-                    string nombre = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
-                    string usuario = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
-                    string pass = dgvUsuarios.CurrentRow.Cells[3].Value.ToString();
-                    int tipo = int.Parse(dgvUsuarios.CurrentRow.Cells[4].Value.ToString());
-                    string permisos = dgvUsuarios.CurrentRow.Cells[6].Value.ToString();
+                    int id = int.Parse(dgvUsuarios.CurrentRow.Cells[2].Value.ToString());
+                    string nombre = dgvUsuarios.CurrentRow.Cells[3].Value.ToString();
+                    string usuario = dgvUsuarios.CurrentRow.Cells[4].Value.ToString();
+                    string pass = dgvUsuarios.CurrentRow.Cells[5].Value.ToString();
+                    int tipo = int.Parse(dgvUsuarios.CurrentRow.Cells[6].Value.ToString());
+                    string permisos = dgvUsuarios.CurrentRow.Cells[8].Value.ToString();
                     //MessageBox.Show(nombre + usuario + pass + tipo + permisos);
 
                     Form actualizar = new FUsuarioActualizar(nombre, usuario, pass, tipo, permisos, id);
@@ -135,7 +131,7 @@ namespace Presentation
                 {
                     //codigo = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
                     //nombre = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
-                    int id = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
+                    int id = int.Parse(dgvUsuarios.CurrentRow.Cells[2].Value.ToString());
                     UserModel user = new UserModel();
                     if (MessageBox.Show("Está seguro de Deshabilitar este Usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
@@ -147,7 +143,7 @@ namespace Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
             }
         }
         #endregion

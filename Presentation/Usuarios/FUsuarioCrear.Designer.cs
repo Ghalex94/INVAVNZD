@@ -319,6 +319,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FUsuarioCrear";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FUsuarioCrear";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

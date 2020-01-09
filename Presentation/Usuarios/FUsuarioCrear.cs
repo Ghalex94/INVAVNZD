@@ -28,12 +28,13 @@ namespace Presentation
             {
                 if (txtPass.Text != txtPass2.Text)
                     MessageBox.Show("ingresó contraseñas distintas, vuelva a intentarlo por favor");
-                else 
+                else
                 {
                     UserModel user = new UserModel();
                     user.InsertarUsuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, cbTipoUsuario.SelectedIndex, AsignarChecks(), 1);
-                    FUsuariosVer.f1.Close();
-                    FMenu.fmenu.AbrirFormulario<FUsuariosVer>();
+                    FUsuariosVer.f1.CargarTabla();       
+                    //FUsuariosVer.f1.Close();
+                    //FMenu.fmenu.AbrirFormulario<FUsuariosVer>();
                     FUsuariosVer.f1.seleccionarUsuario(txtUsuario.Text);
                     //FUsuariosVer.f1.Show();
                     this.Close();
