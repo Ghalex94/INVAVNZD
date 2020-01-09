@@ -23,7 +23,7 @@ namespace Presentation
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             if (txtNombre.TextLength == 0 || txtUsuario.TextLength == 0 || txtPass.TextLength == 0 || txtPass2.TextLength == 0 || cbTipoUsuario.SelectedIndex == -1)
-                MessageBox.Show("Complete información en todos lo campos por favor!!!");
+                MessageBox.Show("Complete información en todos lo campos por favor!");
             else
             {
                 if (txtPass.Text != txtPass2.Text)
