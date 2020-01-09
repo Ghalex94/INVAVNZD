@@ -14,9 +14,11 @@ namespace Presentation
 {
     public partial class FMenu : Form
     {
+        public static FMenu fmenu;
         public FMenu()
         {
             InitializeComponent();
+            FMenu.fmenu = this;
             permisos();
             cargarDatosUsuario();
         }
@@ -238,7 +240,7 @@ namespace Presentation
         #endregion
 
         #region Abrir un formulario
-        private void AbrirFormulario<MiForm>() where MiForm : Form, new()
+        public void AbrirFormulario<MiForm>() where MiForm : Form, new()
         {
             Form formulario;
             formulario = panelFormulario.Controls.OfType<MiForm>().FirstOrDefault(); // Busca en la coleccion el formulario

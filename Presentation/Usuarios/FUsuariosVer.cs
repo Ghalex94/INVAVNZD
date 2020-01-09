@@ -14,9 +14,11 @@ namespace Presentation
     public partial class FUsuariosVer : Form
     {
         #region Metodos que se ejecutan al iniciar
+        public static FUsuariosVer f1;     
         public FUsuariosVer()
         {
             InitializeComponent();
+            FUsuariosVer.f1 = this;
             UserModel user = new UserModel();
             user.MostrarUSuarios(dgvUsuarios);
         }
@@ -53,6 +55,32 @@ namespace Presentation
 
         }
         #endregion
+
+        public void seleccionarUsuario(string usuario)
+        {
+            //MessageBox.Show(usuario);
+            for (int fila = 0; fila < dgvUsuarios.Rows.Count - 1; fila++)
+            {
+                if (usuario == dgvUsuarios.Rows[fila].Cells[2].Value.ToString())
+                {
+                    dgvUsuarios.Rows[fila].Selected = true;
+                    fila = dgvUsuarios.Rows.Count;
+                }
+
+
+                //for (int col = 0; col < dgvUsuarios.Rows[fila].Cells.Count; col++)
+                //{
+                //    //string usuariodata = dgvUsuarios.CurrentRow.Cells[4].Value.ToString();
+
+                //    if (usuario == dgvUsuarios.Rows[fila].Cells[2].Value.ToString())
+                //    {
+                //        dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                //        dgvUsuarios.Rows[fila].Selected = true;
+                //        MessageBox.Show(fila+"");
+                //    }
+                //}
+            }
+        }
 
         #region Metodos de botones Editar y Eliminar
         private void dgvUsuarios_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

@@ -16,7 +16,8 @@ namespace Presentation
     {
         public FUsuarioCrear()
         {
-            InitializeComponent();          
+            InitializeComponent();
+            
             
         }
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -31,6 +32,11 @@ namespace Presentation
                 {
                     UserModel user = new UserModel();
                     user.InsertarUsuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, cbTipoUsuario.SelectedIndex, AsignarChecks(), 1);
+                    FUsuariosVer.f1.Close();
+                    FMenu.fmenu.AbrirFormulario<FUsuariosVer>();
+                    FUsuariosVer.f1.seleccionarUsuario(txtUsuario.Text);
+                    //FUsuariosVer.f1.Show();
+                    this.Close();
                 }
                 
             }
