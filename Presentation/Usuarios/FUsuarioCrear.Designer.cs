@@ -97,7 +97,7 @@
             this.chBoxCaja.Location = new System.Drawing.Point(102, 377);
             this.chBoxCaja.Name = "chBoxCaja";
             this.chBoxCaja.Size = new System.Drawing.Size(57, 22);
-            this.chBoxCaja.TabIndex = 27;
+            this.chBoxCaja.TabIndex = 7;
             this.chBoxCaja.Text = "Caja";
             this.chBoxCaja.UseVisualStyleBackColor = true;
             // 
@@ -107,7 +107,7 @@
             this.txtPass2.Location = new System.Drawing.Point(98, 249);
             this.txtPass2.Name = "txtPass2";
             this.txtPass2.Size = new System.Drawing.Size(443, 26);
-            this.txtPass2.TabIndex = 26;
+            this.txtPass2.TabIndex = 3;
             // 
             // label7
             // 
@@ -128,7 +128,7 @@
             this.chBoxConfiguraciones.Location = new System.Drawing.Point(269, 407);
             this.chBoxConfiguraciones.Name = "chBoxConfiguraciones";
             this.chBoxConfiguraciones.Size = new System.Drawing.Size(135, 22);
-            this.chBoxConfiguraciones.TabIndex = 24;
+            this.chBoxConfiguraciones.TabIndex = 11;
             this.chBoxConfiguraciones.Text = "Configuraciones";
             this.chBoxConfiguraciones.UseVisualStyleBackColor = true;
             // 
@@ -140,7 +140,7 @@
             this.chBoxReportes.Location = new System.Drawing.Point(269, 377);
             this.chBoxReportes.Name = "chBoxReportes";
             this.chBoxReportes.Size = new System.Drawing.Size(88, 22);
-            this.chBoxReportes.TabIndex = 23;
+            this.chBoxReportes.TabIndex = 10;
             this.chBoxReportes.Text = "Reportes";
             this.chBoxReportes.UseVisualStyleBackColor = true;
             // 
@@ -152,7 +152,7 @@
             this.chBoxEntidades.Location = new System.Drawing.Point(269, 349);
             this.chBoxEntidades.Name = "chBoxEntidades";
             this.chBoxEntidades.Size = new System.Drawing.Size(92, 22);
-            this.chBoxEntidades.TabIndex = 22;
+            this.chBoxEntidades.TabIndex = 9;
             this.chBoxEntidades.Text = "Entidades";
             this.chBoxEntidades.UseVisualStyleBackColor = true;
             // 
@@ -164,7 +164,7 @@
             this.chBoxInventario.Location = new System.Drawing.Point(102, 407);
             this.chBoxInventario.Name = "chBoxInventario";
             this.chBoxInventario.Size = new System.Drawing.Size(90, 22);
-            this.chBoxInventario.TabIndex = 21;
+            this.chBoxInventario.TabIndex = 8;
             this.chBoxInventario.Text = "Inventario";
             this.chBoxInventario.UseVisualStyleBackColor = true;
             // 
@@ -176,7 +176,7 @@
             this.chBoxCompras.Location = new System.Drawing.Point(102, 349);
             this.chBoxCompras.Name = "chBoxCompras";
             this.chBoxCompras.Size = new System.Drawing.Size(89, 22);
-            this.chBoxCompras.TabIndex = 20;
+            this.chBoxCompras.TabIndex = 6;
             this.chBoxCompras.Text = "Compras";
             this.chBoxCompras.UseVisualStyleBackColor = true;
             // 
@@ -188,7 +188,7 @@
             this.chBoxVentas.Location = new System.Drawing.Point(102, 325);
             this.chBoxVentas.Name = "chBoxVentas";
             this.chBoxVentas.Size = new System.Drawing.Size(72, 22);
-            this.chBoxVentas.TabIndex = 19;
+            this.chBoxVentas.TabIndex = 5;
             this.chBoxVentas.Text = "Ventas";
             this.chBoxVentas.UseVisualStyleBackColor = true;
             // 
@@ -200,7 +200,7 @@
             this.btnRegistrar.Location = new System.Drawing.Point(95, 458);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(446, 40);
-            this.btnRegistrar.TabIndex = 18;
+            this.btnRegistrar.TabIndex = 12;
             this.btnRegistrar.Text = "Registrar ";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -218,7 +218,7 @@
             this.cbTipoUsuario.Location = new System.Drawing.Point(359, 319);
             this.cbTipoUsuario.Name = "cbTipoUsuario";
             this.cbTipoUsuario.Size = new System.Drawing.Size(182, 28);
-            this.cbTipoUsuario.TabIndex = 16;
+            this.cbTipoUsuario.TabIndex = 4;
             this.cbTipoUsuario.SelectedIndexChanged += new System.EventHandler(this.cbTipoUsuario_SelectedIndexChanged);
             // 
             // txtPass
@@ -227,7 +227,7 @@
             this.txtPass.Location = new System.Drawing.Point(98, 182);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(443, 26);
-            this.txtPass.TabIndex = 15;
+            this.txtPass.TabIndex = 2;
             // 
             // txtUsuario
             // 
@@ -235,7 +235,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(98, 123);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(443, 26);
-            this.txtUsuario.TabIndex = 14;
+            this.txtUsuario.TabIndex = 1;
             // 
             // txtNombre
             // 
@@ -243,7 +243,7 @@
             this.txtNombre.Location = new System.Drawing.Point(98, 64);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(443, 26);
-            this.txtNombre.TabIndex = 13;
+            this.txtNombre.TabIndex = 0;
             // 
             // label6
             // 

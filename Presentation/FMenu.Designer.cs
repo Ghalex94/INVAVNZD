@@ -877,6 +877,7 @@
             // 
             // panelFormulario
             // 
+            this.panelFormulario.BackColor = System.Drawing.Color.White;
             this.panelFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFormulario.Location = new System.Drawing.Point(233, 40);
             this.panelFormulario.Name = "panelFormulario";

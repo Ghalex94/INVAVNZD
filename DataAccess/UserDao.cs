@@ -144,7 +144,7 @@ namespace DataAccess
                         command.Parameters.AddWithValue("@estado", estado);
                         command.ExecuteNonQuery();
 
-                        MessageBox.Show("Registro Ingresado con Exito");
+                        //MessageBox.Show("Registro Ingresado con Exito");
                     }
                     catch (Exception error)
                     {

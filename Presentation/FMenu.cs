@@ -287,7 +287,7 @@ namespace Presentation
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FUsuariosVer>();
-            btnUsuarios.BackColor = Color.FromArgb(12, 61, 92);
+            btnUsuarios.BackColor = Color.FromArgb(255, 255, 255);
         }
 
         private void btnNuevaVentaCotizacion_Click(object sender, EventArgs e)
