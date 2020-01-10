@@ -11,15 +11,14 @@ using Domain;
 
 namespace Presentation
 {
-    public partial class FUsuariosVer : Form
+    public partial class FProductosVer : Form
     {
         #region Metodos que se ejecutan al iniciar
-        public static FUsuariosVer f1;     
-        public FUsuariosVer()
+        public static FProductosVer f1;     
+        public FProductosVer()
         {
-            FUsuariosVer.f1 = this;
+            FProductosVer.f1 = this;
             InitializeComponent();
-            cbxfiltro.SelectedIndex = 0;
             
         }
 
@@ -60,10 +59,12 @@ namespace Presentation
             Column.Visible = false;
             Column = dgvUsuarios.Columns[7];
             Column.Visible = false;
+
+            
+
         }
         #endregion
 
-        #region SeleccionarColumna
         public void seleccionarUsuario(string usuario)
         {
             dgvUsuarios.ClearSelection();
@@ -76,7 +77,6 @@ namespace Presentation
                 }
             }
         }
-        #endregion
 
         #region Metodos de botones Editar y Eliminar
         private void dgvUsuarios_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -123,7 +123,7 @@ namespace Presentation
                     string permisos = dgvUsuarios.CurrentRow.Cells[8].Value.ToString();
                     //MessageBox.Show(nombre + usuario + pass + tipo + permisos);
 
-                    Form actualizar = new FUsuarioActualizar(nombre, usuario, pass, tipo, permisos, id);
+                    Form actualizar = new FProductosActualizar(nombre, usuario, pass, tipo, permisos, id);
                     actualizar.Show();
                     //nombre = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();             
                 }
@@ -151,7 +151,7 @@ namespace Presentation
         #region Botones
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
-            Form crear = new FUsuarioCrear();
+            Form crear = new FProductosCrear();
             crear.ShowDialog();
             crear.FormClosed += cargartable;
         }
@@ -166,19 +166,5 @@ namespace Presentation
         }
         #endregion
 
-        #region Evento de Filtrar la tabla por el textBox
-        private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
-        {
-                UserModel user = new UserModel();
-            if (cbxfiltro.SelectedIndex == 0)
-            {
-                user.FiltrarNombre(txtBuscar.Text, dgvUsuarios);
-            }
-            if (cbxfiltro.SelectedIndex == 1)
-            {
-                user.FiltrarUsuario(txtBuscar.Text, dgvUsuarios);
-            }
-        }
-        #endregion
     }
 }

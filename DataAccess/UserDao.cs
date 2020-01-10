@@ -125,6 +125,60 @@ namespace DataAccess
                 MessageBox.Show("Error: " + error);
             }
         }
+        public void filtrarNombre(string nombrem, DataGridView dgv)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "SELECT distinct id_usu, nombre_usu, usu, contra, tipo, case when tipo = 0 then 'Super Administrador' when tipo = 1 then 'Administrador' when tipo = 2 then 'Vendedor' end as tipo2, permisos, estado from tb_usuario where nombre_usu like '%" + nombrem + "%'";
+                        command.ExecuteNonQuery();
+
+                        System.Data.DataTable dt = new System.Data.DataTable();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+
+                        adapter.Fill(dt);
+                        dgv.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+        }
+        public void filtrarUsuario(string usuario, DataGridView dgv)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "SELECT distinct id_usu, nombre_usu, usu, contra, tipo, case when tipo = 0 then 'Super Administrador' when tipo = 1 then 'Administrador' when tipo = 2 then 'Vendedor' end as tipo2, permisos, estado from tb_usuario where usu like '%" + usuario + "%'";
+                        command.ExecuteNonQuery();
+
+                        System.Data.DataTable dt = new System.Data.DataTable();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+
+                        adapter.Fill(dt);
+                        dgv.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+        }
         public void insertarUsuario(string nombre, string usu, string pass, int tipo, string permisos, int estado)
         {
             using (var connection = GetConnection())

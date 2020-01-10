@@ -20,6 +20,15 @@ namespace Domain
         {
             userdao.mostrarTabla(dgv);
         }
+        public void FiltrarNombre(string nombre, DataGridView dgv)
+        {
+            userdao.filtrarNombre(nombre, dgv);
+        }
+
+        public void FiltrarUsuario(string usuario, DataGridView dgv)
+        {
+            userdao.filtrarUsuario(usuario, dgv);
+        }
         public void InsertarUsuario(string nombre, string usu, string pass, int tipo, string permisos, int estado) {
             userdao.insertarUsuario(nombre,usu,pass,tipo,permisos,estado);
         }
