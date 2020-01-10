@@ -494,6 +494,7 @@
             this.btnPresentaciones.Text = "Presentaciones";
             this.btnPresentaciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPresentaciones.UseVisualStyleBackColor = false;
+            this.btnPresentaciones.Click += new System.EventHandler(this.btnPresentaciones_Click);
             // 
             // btnProductos
             // 

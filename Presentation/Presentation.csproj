@@ -59,6 +59,24 @@
     <Compile Include="FMenu.Designer.cs">
       <DependentUpon>FMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\FPresentacionActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FPresentacionActualizar.Designer.cs">
+      <DependentUpon>FPresentacionActualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FPresentacionCrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FPresentacionCrear.Designer.cs">
+      <DependentUpon>FPresentacionCrear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FPresentacionVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FPresentacionVer.Designer.cs">
+      <DependentUpon>FPresentacionVer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios\FUsuarioActualizar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FPresentacionVer.resx">
+      <DependentUpon>FPresentacionVer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\FUsuarioActualizar.resx">
       <DependentUpon>FUsuarioActualizar.cs</DependentUpon>

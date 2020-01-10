@@ -19,26 +19,25 @@ namespace Presentation
         {
             FUsuariosVer.f1 = this;
             InitializeComponent();
-            cbxfiltro.SelectedIndex = 0;
-            
+            cbxfiltro.SelectedIndex = 0;            
         }
 
         public void CargarTabla()
         {
             UserModel user = new UserModel();
-            user.MostrarUSuarios(dgvUsuarios);          
+            user.MostrarUSuarios(dgvUsuarios);
         }
-
         private void FUsuariosVer_Load(object sender, EventArgs e)
         {
             CargarTabla();
+            
             // Agregar botones editar, eliminar
             DataGridViewButtonColumn btnedit = new DataGridViewButtonColumn();
             DataGridViewButtonColumn btneliminar = new DataGridViewButtonColumn();
             btnedit.Name = "Editar";
             btneliminar.Name = "Eliminar";
             dgvUsuarios.Columns.Add(btnedit);
-            dgvUsuarios.Columns.Add(btneliminar);
+            dgvUsuarios.Columns.Add(btneliminar);            
 
             // ASIGNACION DE NOMBRES A COLUMNAS
             dgvUsuarios.Columns[0].HeaderText = "ID";
@@ -60,6 +59,7 @@ namespace Presentation
             Column.Visible = false;
             Column = dgvUsuarios.Columns[7];
             Column.Visible = false;
+
         }
         #endregion
 
@@ -136,7 +136,8 @@ namespace Presentation
                     if (MessageBox.Show("Está seguro de Deshabilitar este Usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         user.DeshabilitarUsuario(id);
-                        dgvUsuarios.Rows.Remove(dgvUsuarios.CurrentRow);
+                        CargarTabla();
+                        //dgvUsuarios.Rows.Remove(dgvUsuarios.CurrentRow);
                     }
 
                 }
@@ -180,5 +181,17 @@ namespace Presentation
             }
         }
         #endregion
+    
+        public void NotarDeshabilitado()
+        {
+            foreach (DataGridViewRow row in dgvUsuarios.Rows)
+            {
+                if (row.Cells["estado"].Value.ToString() == "0")
+                {
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(246, 121, 121);
+                }
+            }
+        }
+    
     }
 }

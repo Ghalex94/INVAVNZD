@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Common.Cache;
+using Presentation.Presentacion;
 
 namespace Presentation
 {
@@ -264,30 +265,18 @@ namespace Presentation
         }
         #endregion
 
-        #region Cerrar un formulario
-        private void CloseForms(object sender, FormClosedEventArgs e)
-        {
-            if (Application.OpenForms["FVerUsuario"] == null)
-            {
-                btnUsuarios.BackColor = Color.White;
-            }
-            //if (Application.OpenForms["Form2"] == null)
-            //{
-
-            //    sub2Button1.BackColor = Color.White;
-            //}
-            //if (Application.OpenForms["Form3"] == null)
-            //{
-            //    sub3Button1.BackColor = Color.White;
-            //}
-        }
-        #endregion
-
         #region Menu Ventas
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FUsuariosVer>();
             btnUsuarios.BackColor = Color.FromArgb(255, 255, 255);
+            FUsuariosVer.f1.NotarDeshabilitado();
+        }
+
+        private void btnPresentaciones_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FPresentacionVer>();
+            btnPresentaciones.BackColor = Color.FromArgb(255, 255, 255);
         }
 
         private void btnNuevaVentaCotizacion_Click(object sender, EventArgs e)
@@ -310,5 +299,30 @@ namespace Presentation
 
         }
         #endregion
+
+        #region Cerrar un formulario
+        private void CloseForms(object sender, FormClosedEventArgs e)
+        {
+            if (Application.OpenForms["FUsuariosVer"] == null)
+            {
+                btnUsuarios.BackColor = Color.FromArgb(215, 228, 242);
+            }
+            if (Application.OpenForms["FPresentacionVer"] == null)
+            {
+                btnPresentaciones.BackColor = Color.FromArgb(215, 228, 242);
+            }
+            //if (Application.OpenForms["Form2"] == null)
+            //{
+
+            //    sub2Button1.BackColor = Color.White;
+            //}
+            //if (Application.OpenForms["Form3"] == null)
+            //{
+            //    sub3Button1.BackColor = Color.White;
+            //}
+        }
+        #endregion
+
+
     }
 }
