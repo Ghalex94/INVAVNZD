@@ -33,7 +33,7 @@ namespace Presentation
             
             // Agregar botones editar, eliminar
             DataGridViewButtonColumn btnedit = new DataGridViewButtonColumn();
-            DataGridViewButtonColumn btneliminar = new DataGridViewButtonColumn();
+            DataGridViewButtonColumn btneliminar = new DataGridViewButtonColumn();            
             btnedit.Name = "Editar";
             btneliminar.Name = "Eliminar";
             dgvUsuarios.Columns.Add(btnedit);
@@ -57,9 +57,8 @@ namespace Presentation
             Column.Visible = false;
             Column = dgvUsuarios.Columns[4];
             Column.Visible = false;
-            Column = dgvUsuarios.Columns[7];
-            Column.Visible = false;
-
+            //Column = dgvUsuarios.Columns[7];
+            //Column.Visible = false;
         }
         #endregion
 
@@ -96,16 +95,31 @@ namespace Presentation
             }
             if (e.ColumnIndex >= 0 && this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
             {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                
+                if (dgvUsuarios.SelectedCells[9].Value.ToString() == "0")
+                {
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-                DataGridViewButtonCell celBoton = this.dgvUsuarios.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
-                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\\delete.ico");/////Recuerden colocar su icono en la carpeta debug de su proyecto
-                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+                    //DataGridViewButtonCell celBoton = this.dgvUsuarios.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
 
-                this.dgvUsuarios.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
-                this.dgvUsuarios.Columns[e.ColumnIndex].Width = icoAtomico.Width + 8;
+                    Icon check = new Icon(Environment.CurrentDirectory + @"\\check.ico");/////Recuerden colocar su icono en la carpeta debug de su proyecto                   
+                    e.Graphics.DrawIcon(check, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+                    this.dgvUsuarios.Rows[e.RowIndex].Height = check.Height + 8;
+                    this.dgvUsuarios.Columns[e.ColumnIndex].Width = check.Width + 8;
+                    e.Handled = true;
+                }
+                else
+                {
+                    e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-                e.Handled = true;
+                    //DataGridViewButtonCell celBoton = this.dgvUsuarios.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
+
+                    Icon delete = new Icon(Environment.CurrentDirectory + @"\\delete.ico");/////Recuerden colocar su icono en la carpeta debug de su proyecto
+                    e.Graphics.DrawIcon(delete, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+                    this.dgvUsuarios.Rows[e.RowIndex].Height = delete.Height + 8;
+                    this.dgvUsuarios.Columns[e.ColumnIndex].Width = delete.Width + 8;
+                    e.Handled = true;
+                }    
             }
         }
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -129,17 +143,40 @@ namespace Presentation
                 }
                 if (this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Eliminar")
                 {
-                    //codigo = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
-                    //nombre = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
-                    int id = int.Parse(dgvUsuarios.CurrentRow.Cells[2].Value.ToString());
-                    UserModel user = new UserModel();
-                    if (MessageBox.Show("Está seguro de Deshabilitar este Usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    if (dgvUsuarios.SelectedCells[9].Value.ToString() == "0")
                     {
-                        user.DeshabilitarUsuario(id);
-                        CargarTabla();
-                        //dgvUsuarios.Rows.Remove(dgvUsuarios.CurrentRow);
+                        //codigo = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
+                        //nombre = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
+                        int id = int.Parse(dgvUsuarios.CurrentRow.Cells[2].Value.ToString());
+                        string usuario = dgvUsuarios.CurrentRow.Cells[4].Value.ToString();
+                        UserModel user = new UserModel();
+                        if (MessageBox.Show("Está seguro de Habilitar este Usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            user.HabilitarUsuario(id);
+                            CargarTabla();
+                            FUsuariosVer.f1.NotarDeshabilitado();
+                            //MessageBox.Show(usuario);
+                            FUsuariosVer.f1.seleccionarUsuario(usuario);
+                            //dgvUsuarios.Rows.Remove(dgvUsuarios.CurrentRow);
+                        }
                     }
-
+                    else //(dgvUsuarios.SelectedCells[9].Value.ToString() == "1")
+                    {
+                        //codigo = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
+                        //nombre = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
+                        int id = int.Parse(dgvUsuarios.CurrentRow.Cells[2].Value.ToString());
+                        string usuario = dgvUsuarios.CurrentRow.Cells[4].Value.ToString();
+                        UserModel user = new UserModel();
+                        if (MessageBox.Show("Está seguro de Deshabilitar este Usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            user.DeshabilitarUsuario(id);
+                            CargarTabla();
+                            FUsuariosVer.f1.NotarDeshabilitado();
+                            //MessageBox.Show(usuario);
+                            FUsuariosVer.f1.seleccionarUsuario(usuario);
+                            //dgvUsuarios.Rows.Remove(dgvUsuarios.CurrentRow);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -170,14 +207,16 @@ namespace Presentation
         #region Evento de Filtrar la tabla por el textBox
         private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
         {
-                UserModel user = new UserModel();
+            UserModel user = new UserModel();
             if (cbxfiltro.SelectedIndex == 0)
             {
                 user.FiltrarNombre(txtBuscar.Text, dgvUsuarios);
+                NotarDeshabilitado();
             }
             if (cbxfiltro.SelectedIndex == 1)
             {
                 user.FiltrarUsuario(txtBuscar.Text, dgvUsuarios);
+                NotarDeshabilitado();
             }
         }
         #endregion
@@ -192,6 +231,15 @@ namespace Presentation
                 }
             }
         }
-    
+
+        private void dgvUsuarios_ColumnHeaderCellChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            NotarDeshabilitado();
+        }
+
+        private void dgvUsuarios_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            NotarDeshabilitado();
+        }
     }
 }

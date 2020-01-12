@@ -33,6 +33,7 @@ namespace Presentation
                     UserModel user = new UserModel();
                     user.InsertarUsuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, cbTipoUsuario.SelectedIndex, AsignarChecks(), 1);
                     FUsuariosVer.f1.CargarTabla();
+                    FUsuariosVer.f1.NotarDeshabilitado();
                     FUsuariosVer.f1.seleccionarUsuario(txtUsuario.Text);
                     MessageBox.Show("Usuario Ingresado con Exito");
                     this.Close();

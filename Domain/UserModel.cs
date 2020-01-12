@@ -40,5 +40,9 @@ namespace Domain
         {
             userdao.deshabilitarUsuario(id);
         }
+        public void HabilitarUsuario(int id)
+        {
+            userdao.habilitarUsuario(id);
+        }
     }   
 }  

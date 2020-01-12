@@ -260,6 +260,29 @@ namespace DataAccess
                 }
             }
         }
+        public void habilitarUsuario(int id)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand())
+                {
+                    try
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "update tb_usuario SET estado = 1 WHERE id_usu = @id";
+                        command.Parameters.AddWithValue("@id", id);
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Usuario Habilitado");
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error: " + error);
+                    }
+                }
+            }
+        }
 
     }
 }

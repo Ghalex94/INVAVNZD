@@ -121,6 +121,7 @@ namespace Presentation
             UserModel user = new UserModel();
             user.ActualizarUsuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, cbTipoUsuario.SelectedIndex, Asignarcheck(),codi);
             FUsuariosVer.f1.CargarTabla();
+            FUsuariosVer.f1.NotarDeshabilitado();
             FUsuariosVer.f1.seleccionarUsuario(txtUsuario.Text);
             this.Close();
         }
