@@ -82,9 +82,10 @@ namespace Presentation
         {
             if (e.ColumnIndex >= 0 && this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Editar" && e.RowIndex >= 0)
             {
+
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-                DataGridViewButtonCell celBoton = this.dgvUsuarios.Rows[e.RowIndex].Cells["Editar"] as DataGridViewButtonCell;
+                //DataGridViewButtonCell celBoton = this.dgvUsuarios.Rows[e.RowIndex].Cells["Editar"] as DataGridViewButtonCell;
                 Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\\edit.ico");/////Recuerden colocar su icono en la carpeta debug de su proyecto
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
@@ -95,31 +96,15 @@ namespace Presentation
             }
             if (e.ColumnIndex >= 0 && this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
             {
-                
-                if (dgvUsuarios.SelectedCells[9].Value.ToString() == "0")
-                {
-                    e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-                    //DataGridViewButtonCell celBoton = this.dgvUsuarios.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
+                //DataGridViewButtonCell celBoton = this.dgvUsuarios.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
 
-                    Icon check = new Icon(Environment.CurrentDirectory + @"\\check.ico");/////Recuerden colocar su icono en la carpeta debug de su proyecto                   
-                    e.Graphics.DrawIcon(check, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
-                    this.dgvUsuarios.Rows[e.RowIndex].Height = check.Height + 8;
-                    this.dgvUsuarios.Columns[e.ColumnIndex].Width = check.Width + 8;
-                    e.Handled = true;
-                }
-                else
-                {
-                    e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-
-                    //DataGridViewButtonCell celBoton = this.dgvUsuarios.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
-
-                    Icon delete = new Icon(Environment.CurrentDirectory + @"\\delete.ico");/////Recuerden colocar su icono en la carpeta debug de su proyecto
-                    e.Graphics.DrawIcon(delete, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
-                    this.dgvUsuarios.Rows[e.RowIndex].Height = delete.Height + 8;
-                    this.dgvUsuarios.Columns[e.ColumnIndex].Width = delete.Width + 8;
-                    e.Handled = true;
-                }    
+                Icon check = new Icon(Environment.CurrentDirectory + @"\\reload.ico");/////Recuerden colocar su icono en la carpeta debug de su proyecto                   
+                e.Graphics.DrawIcon(check, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+                this.dgvUsuarios.Rows[e.RowIndex].Height = check.Height + 8;
+                this.dgvUsuarios.Columns[e.ColumnIndex].Width = check.Width + 8;
+                e.Handled = true;
             }
         }
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -172,9 +157,7 @@ namespace Presentation
                             user.DeshabilitarUsuario(id);
                             CargarTabla();
                             FUsuariosVer.f1.NotarDeshabilitado();
-                            //MessageBox.Show(usuario);
                             FUsuariosVer.f1.seleccionarUsuario(usuario);
-                            //dgvUsuarios.Rows.Remove(dgvUsuarios.CurrentRow);
                         }
                     }
                 }
@@ -236,6 +219,7 @@ namespace Presentation
         {
             NotarDeshabilitado();
         }
+
 
         private void dgvUsuarios_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
