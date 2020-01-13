@@ -5,46 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
-using Common.Cache;
 using System.Windows.Forms;
 using System.Data;
 
 namespace DataAccess
 {
-    public class UserDao : ConnectionToMySql
+    public class PresentacionDao:ConnectionToMySql
     {
-        public bool Login(string user, string pass)
-        {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                using (var command = new MySqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandText = "select * from tb_usuario where usu = @user and  contra = @pass and estado = 1";
-                    command.Parameters.AddWithValue("@user", user);
-                    command.Parameters.AddWithValue("@pass", pass);
-                    command.CommandType = System.Data.CommandType.Text;
-                    MySqlDataReader reader = command.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            UserCache.idUsuario = reader.GetInt32(0);
-                            UserCache.nombreUsuario = reader.GetString(1);
-                            UserCache.usuario = reader.GetString(2);
-                            UserCache.passUsuario = reader.GetString(3);
-                            UserCache.tipoUsuario = reader.GetByte(4);
-                            UserCache.permisosUsuario = reader.GetString(5);
-                            UserCache.estado = reader.GetByte(6);
-                        }
-                        return true;
-                    }
-                    else
-                        return false;
-                }
-            }
-        }
         public void mostrarTabla(DataGridView dgv)
         {
             #region METODO PARA LLENAR UN DATAGRID DE MANERA MANUAL Y UNO POR UNO, PARA PONER CONDICIONES QUE UNO VEA NECESARIO
@@ -107,7 +74,7 @@ namespace DataAccess
                     using (var command = new MySqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT distinct id_usu, nombre_usu, usu, contra, tipo, case when tipo = 0 then 'Super Administrador' when tipo = 1 then 'Administrador' when tipo = 2 then 'Vendedor' end as tipo2, permisos, estado from tb_usuario order by estado desc";
+                        command.CommandText = "SELECT distinct id_presentacion, estado, case when estado = 0 then 'Super Administrador' when tipo = 1 then 'Administrador' end as estado2 from tb_presentacion order by estado desc";
                         command.CommandType = System.Data.CommandType.Text;
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -124,61 +91,7 @@ namespace DataAccess
                 MessageBox.Show("Error: " + error);
             }
         }
-        public void filtrarNombre(string nombrem, DataGridView dgv)
-        {
-            try
-            {
-                using (var connection = GetConnection())
-                {
-                    connection.Open();
-                    using (var command = new MySqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "SELECT distinct id_usu, nombre_usu, usu, contra, tipo, case when tipo = 0 then 'Super Administrador' when tipo = 1 then 'Administrador' when tipo = 2 then 'Vendedor' end as tipo2, permisos, estado from tb_usuario where nombre_usu like '%" + nombrem + "%'";
-                        command.ExecuteNonQuery();
-
-                        System.Data.DataTable dt = new System.Data.DataTable();
-                        MySqlDataAdapter adapter = new MySqlDataAdapter();
-                        adapter.SelectCommand = command;
-
-                        adapter.Fill(dt);
-                        dgv.DataSource = dt;
-                    }
-                }
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Error: " + error);
-            }
-        }
-        public void filtrarUsuario(string usuario, DataGridView dgv)
-        {
-            try
-            {
-                using (var connection = GetConnection())
-                {
-                    connection.Open();
-                    using (var command = new MySqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "SELECT distinct id_usu, nombre_usu, usu, contra, tipo, case when tipo = 0 then 'Super Administrador' when tipo = 1 then 'Administrador' when tipo = 2 then 'Vendedor' end as tipo2, permisos, estado from tb_usuario where usu like '%" + usuario + "%'";
-                        command.ExecuteNonQuery();
-
-                        System.Data.DataTable dt = new System.Data.DataTable();
-                        MySqlDataAdapter adapter = new MySqlDataAdapter();
-                        adapter.SelectCommand = command;
-
-                        adapter.Fill(dt);
-                        dgv.DataSource = dt;
-                    }
-                }
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show("Error: " + error);
-            }
-        }
-        public void insertarUsuario(string nombre, string usu, string pass, int tipo, string permisos, int estado)
+        public void insertarPresentacion(string presentacion, int estado)
         {
             using (var connection = GetConnection())
             {
@@ -188,12 +101,8 @@ namespace DataAccess
                     try
                     {
                         command.Connection = connection;
-                        command.CommandText = "insert into tb_usuario(nombre_usu,usu,contra,tipo,permisos,estado)values(@nombre,@usu,@pass,@tipo,@permisos,@estado)";
-                        command.Parameters.AddWithValue("@nombre", nombre);
-                        command.Parameters.AddWithValue("@usu", usu);
-                        command.Parameters.AddWithValue("@pass", pass);
-                        command.Parameters.AddWithValue("@tipo", tipo);
-                        command.Parameters.AddWithValue("@permisos", permisos);
+                        command.CommandText = "insert into tb_presentacion(presentacion,estado)values(@presentacion,@estado)";
+                        command.Parameters.AddWithValue("@presentacion", presentacion);
                         command.Parameters.AddWithValue("@estado", estado);
                         command.ExecuteNonQuery();
 
@@ -203,10 +112,10 @@ namespace DataAccess
                     {
                         MessageBox.Show("Error: " + error);
                     }
-                }              
+                }
             }
         }
-        public void actualizarUsuario(string nombre, string usu, string pass, int tipo, string permisos,int id)
+        public void actualizarPresentacion(string presentacion, int id)
         {
             using (var connection = GetConnection())
             {
@@ -216,12 +125,8 @@ namespace DataAccess
                     try
                     {
                         command.Connection = connection;
-                        command.CommandText = "update tb_usuario SET nombre_usu = @nombre,usu = @usu,contra = @pass,tipo = @tipo,permisos = @permisos WHERE id_usu = @id";
-                        command.Parameters.AddWithValue("@nombre", nombre);
-                        command.Parameters.AddWithValue("@usu", usu);
-                        command.Parameters.AddWithValue("@pass", pass);
-                        command.Parameters.AddWithValue("@tipo", tipo);
-                        command.Parameters.AddWithValue("@permisos", permisos);                       
+                        command.CommandText = "update tb_presentacion SET presentacion = @presentacion WHERE id_presentacion = @id";
+                        command.Parameters.AddWithValue("@presentacion", presentacion);
                         command.Parameters.AddWithValue("@id", id);
                         command.ExecuteNonQuery();
 
@@ -234,7 +139,7 @@ namespace DataAccess
                 }
             }
         }
-        public void deshabilitarUsuario(int id)
+        public void deshabilitarPresentacion(int id)
         {
             using (var connection = GetConnection())
             {
@@ -244,11 +149,11 @@ namespace DataAccess
                     try
                     {
                         command.Connection = connection;
-                        command.CommandText = "update tb_usuario SET estado = 0 WHERE id_usu = @id";                      
+                        command.CommandText = "update tb_presentacion SET estado = 0 WHERE id_presentacion = @id";
                         command.Parameters.AddWithValue("@id", id);
                         command.ExecuteNonQuery();
 
-                        MessageBox.Show("Usuario Deshabilitado");
+                        MessageBox.Show("Presentacion Deshabilitado");
                     }
                     catch (Exception error)
                     {
@@ -257,7 +162,7 @@ namespace DataAccess
                 }
             }
         }
-        public void habilitarUsuario(int id)
+        public void habilitarPresentacion(int id)
         {
             using (var connection = GetConnection())
             {
@@ -267,11 +172,11 @@ namespace DataAccess
                     try
                     {
                         command.Connection = connection;
-                        command.CommandText = "update tb_usuario SET estado = 1 WHERE id_usu = @id";
+                        command.CommandText = "update tb_presentacion SET estado = 1 WHERE id_presentacion = @id";
                         command.Parameters.AddWithValue("@id", id);
                         command.ExecuteNonQuery();
 
-                        MessageBox.Show("Usuario Habilitado");
+                        MessageBox.Show("Presentacion Habilitado");
                     }
                     catch (Exception error)
                     {
@@ -280,5 +185,6 @@ namespace DataAccess
                 }
             }
         }
+
     }
 }
