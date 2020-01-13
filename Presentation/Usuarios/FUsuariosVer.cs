@@ -34,8 +34,8 @@ namespace Presentation
             // Agregar botones editar, eliminar
             DataGridViewButtonColumn btnedit = new DataGridViewButtonColumn();
             DataGridViewButtonColumn btneliminar = new DataGridViewButtonColumn();            
-            btnedit.Name = "Editar";
-            btneliminar.Name = "Eliminar";
+            btnedit.Name = "Edit";
+            btneliminar.Name = "Cambiar";
             dgvUsuarios.Columns.Add(btnedit);
             dgvUsuarios.Columns.Add(btneliminar);            
 
@@ -80,31 +80,33 @@ namespace Presentation
         #region Metodos de botones Editar y Eliminar
         private void dgvUsuarios_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.ColumnIndex >= 0 && this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Editar" && e.RowIndex >= 0)
+            if (e.ColumnIndex >= 0 && this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Edit" && e.RowIndex >= 0)
             {
-
+                
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                 //DataGridViewButtonCell celBoton = this.dgvUsuarios.Rows[e.RowIndex].Cells["Editar"] as DataGridViewButtonCell;
                 Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\\edit.ico");/////Recuerden colocar su icono en la carpeta debug de su proyecto
                 e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
 
-                this.dgvUsuarios.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
-                this.dgvUsuarios.Columns[e.ColumnIndex].Width = icoAtomico.Width + 8;
+                this.dgvUsuarios.Rows[e.RowIndex].Height = icoAtomico.Height + 10;
+                this.dgvUsuarios.Columns[e.ColumnIndex].Width = icoAtomico.Width + 10;
 
                 e.Handled = true;
             }
-            if (e.ColumnIndex >= 0 && this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Eliminar" && e.RowIndex >= 0)
+            if (e.ColumnIndex >= 0 && this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Cambiar" && e.RowIndex >= 0)
             {
+                
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
                 //DataGridViewButtonCell celBoton = this.dgvUsuarios.Rows[e.RowIndex].Cells["Eliminar"] as DataGridViewButtonCell;
 
                 Icon check = new Icon(Environment.CurrentDirectory + @"\\reload.ico");/////Recuerden colocar su icono en la carpeta debug de su proyecto                   
                 e.Graphics.DrawIcon(check, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
-                this.dgvUsuarios.Rows[e.RowIndex].Height = check.Height + 8;
-                this.dgvUsuarios.Columns[e.ColumnIndex].Width = check.Width + 8;
+                this.dgvUsuarios.Rows[e.RowIndex].Height = check.Height + 10;
+                this.dgvUsuarios.Columns[e.ColumnIndex].Width = check.Width + 10;
                 e.Handled = true;
+
             }
         }
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -112,7 +114,7 @@ namespace Presentation
             try
             {
                 //string nombre, codigo;
-                if (this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Editar")
+                if (this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Edit")
                 {
                     int id = int.Parse(dgvUsuarios.CurrentRow.Cells[2].Value.ToString());
                     string nombre = dgvUsuarios.CurrentRow.Cells[3].Value.ToString();
@@ -126,7 +128,7 @@ namespace Presentation
                     actualizar.Show();
                     //nombre = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();             
                 }
-                if (this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Eliminar")
+                if (this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Cambiar")
                 {
                     if (dgvUsuarios.SelectedCells[9].Value.ToString() == "0")
                     {
