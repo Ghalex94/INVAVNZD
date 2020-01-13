@@ -6,7 +6,8 @@ use db_inventario_avanzado;
 create table tb_presentacion(
 	id_presentacion 	int auto_increment primary key, -- COdigo de la Presentacion
     
-    presentacion 		varchar(30) -- Detalle de la presentacion
+    presentacion 		varchar(30), -- Detalle de la presentacion
+    estado				tinyint -- Estados que tendra la presentacion: Habilidato y Deshabilitado
 );
 
 create table tb_producto(

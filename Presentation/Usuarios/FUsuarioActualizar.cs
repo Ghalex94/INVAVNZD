@@ -21,6 +21,16 @@ namespace Presentation
             codi = id;
         }
 
+        private static FUsuarioActualizar frmInstance = null;
+        public static FUsuarioActualizar Instance(string nombre, string usuario, string pass, int tipo, string permisos, int id)
+        {
+            if (((frmInstance == null) || (frmInstance.IsDisposed == true)))
+            {
+                frmInstance = new FUsuarioActualizar(nombre, usuario, pass,tipo, permisos,id);
+            }
+            frmInstance.BringToFront();
+            return frmInstance;
+        }
 
         public void Llenar_formulario(string nombre, string usuario, string pass, int tipo, string permisos)
         {

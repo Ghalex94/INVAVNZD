@@ -125,8 +125,11 @@ namespace Presentation
                     //MessageBox.Show(nombre + usuario + pass + tipo + permisos);
 
                     Form actualizar = new FUsuarioActualizar(nombre, usuario, pass, tipo, permisos, id);
-                    actualizar.Show();
-                    //nombre = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();             
+                    actualizar.ShowDialog();
+
+
+                    //actualizar.FormClosed += cargartable;
+                    //nombre = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();   
                 }
                 if (this.dgvUsuarios.Columns[e.ColumnIndex].Name == "Cambiar")
                 {

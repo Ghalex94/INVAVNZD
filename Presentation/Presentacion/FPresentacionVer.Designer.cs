@@ -33,9 +33,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAgregarPresentacion = new System.Windows.Forms.Button();
             this.btnCerrarVentana = new System.Windows.Forms.Button();
-            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.dgvPresentacion = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPresentacion)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -84,18 +84,18 @@
             this.btnCerrarVentana.UseVisualStyleBackColor = false;
             this.btnCerrarVentana.Click += new System.EventHandler(this.btnCerrarVentana_Click);
             // 
-            // dgvUsuarios
+            // dgvPresentacion
             // 
-            this.dgvUsuarios.AllowUserToAddRows = false;
-            this.dgvUsuarios.AllowUserToDeleteRows = false;
-            this.dgvUsuarios.AllowUserToResizeRows = false;
-            this.dgvUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvPresentacion.AllowUserToAddRows = false;
+            this.dgvPresentacion.AllowUserToDeleteRows = false;
+            this.dgvPresentacion.AllowUserToResizeRows = false;
+            this.dgvPresentacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUsuarios.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvPresentacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPresentacion.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvPresentacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPresentacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -103,9 +103,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvUsuarios.ColumnHeadersHeight = 40;
-            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvPresentacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPresentacion.ColumnHeadersHeight = 40;
+            this.dgvPresentacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,16 +113,16 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUsuarios.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUsuarios.EnableHeadersVisualStyles = false;
-            this.dgvUsuarios.GridColor = System.Drawing.Color.Silver;
-            this.dgvUsuarios.Location = new System.Drawing.Point(12, 155);
-            this.dgvUsuarios.Name = "dgvUsuarios";
-            this.dgvUsuarios.ReadOnly = true;
-            this.dgvUsuarios.RowHeadersVisible = false;
-            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(625, 286);
-            this.dgvUsuarios.TabIndex = 12;
+            this.dgvPresentacion.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPresentacion.EnableHeadersVisualStyles = false;
+            this.dgvPresentacion.GridColor = System.Drawing.Color.Silver;
+            this.dgvPresentacion.Location = new System.Drawing.Point(12, 155);
+            this.dgvPresentacion.Name = "dgvPresentacion";
+            this.dgvPresentacion.ReadOnly = true;
+            this.dgvPresentacion.RowHeadersVisible = false;
+            this.dgvPresentacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPresentacion.Size = new System.Drawing.Size(625, 286);
+            this.dgvPresentacion.TabIndex = 12;
             // 
             // label1
             // 
@@ -146,11 +146,11 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnAgregarPresentacion);
             this.Controls.Add(this.btnCerrarVentana);
-            this.Controls.Add(this.dgvUsuarios);
+            this.Controls.Add(this.dgvPresentacion);
             this.Controls.Add(this.label1);
             this.Name = "FPresentacionVer";
             this.Text = "FPresentacionVer";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPresentacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,7 +160,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnAgregarPresentacion;
         private System.Windows.Forms.Button btnCerrarVentana;
-        private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.DataGridView dgvPresentacion;
         private System.Windows.Forms.Label label1;
     }
 }
