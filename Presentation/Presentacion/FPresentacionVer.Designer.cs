@@ -64,6 +64,7 @@
             this.btnAgregarPresentacion.TabIndex = 15;
             this.btnAgregarPresentacion.Text = "Nueva presentacion";
             this.btnAgregarPresentacion.UseVisualStyleBackColor = false;
+            this.btnAgregarPresentacion.Click += new System.EventHandler(this.btnAgregarPresentacion_Click);
             // 
             // btnCerrarVentana
             // 
@@ -123,6 +124,10 @@
             this.dgvPresentacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPresentacion.Size = new System.Drawing.Size(625, 286);
             this.dgvPresentacion.TabIndex = 12;
+            this.dgvPresentacion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPresentacion_CellClick);
+            this.dgvPresentacion.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvPresentacion_CellPainting);
+            this.dgvPresentacion.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPresentacion_ColumnHeaderMouseClick);
+            this.dgvPresentacion.ColumnHeaderCellChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dgvPresentacion_ColumnHeaderCellChanged);
             // 
             // label1
             // 
@@ -150,6 +155,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FPresentacionVer";
             this.Text = "FPresentacionVer";
+            this.Load += new System.EventHandler(this.FPresentacionVer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPresentacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

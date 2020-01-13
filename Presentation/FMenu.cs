@@ -120,20 +120,20 @@ namespace Presentation
 
         #region Habilitar los menús según los permisos del usuario
         public void permisos()
-        {/*
+        {
             //DESHABILITAMOS Y OCULTAMOS TODO PARA LUEGO MOSTRARLOS SEGUN CORRESPONDA
             btnVentas.Enabled = false;
             btnVentas.Visible = false;
-            btnCaja.Enabled = false;
-            btnCaja.Visible = false;
             btnCompras.Enabled = false;
             btnCompras.Visible = false;
+            btnCaja.Enabled = false;
+            btnCaja.Visible = false;
+            btnInventario.Enabled = false;
+            btnInventario.Visible = false;
+            btnEntidades.Enabled = false;
+            btnEntidades.Visible = false;
             btnReportes.Enabled = false;
             btnReportes.Visible = false;
-            btnClientes.Enabled = false;
-            btnClientes.Visible = false;
-            btnUsuarios.Enabled = false;
-            btnUsuarios.Visible = false;
             btnConfiguraciones.Enabled = false;
             btnConfiguraciones.Visible = false;
            
@@ -154,24 +154,28 @@ namespace Presentation
                         btnCompras.Visible = true;
                         break;
                     case "3":
+                        btnCaja.Enabled = true;
+                        btnCaja.Visible = true;
+                        break;
+                    case "4":
+                        btnInventario.Enabled = true;
+                        btnInventario.Visible = true;
+                        break;
+                    case "5":
+                        btnEntidades.Enabled = true;
+                        btnEntidades.Visible = true;
+                        break;
+                    case "6":
                         btnReportes.Enabled = true;
                         btnReportes.Visible = true;
                         break;
-                    case "4":
-                        btnClientes.Enabled = true;
-                        btnClientes.Visible = true;
-                        break;
-                    case "5":
-                        btnUsuarios.Enabled = true;
-                        btnUsuarios.Visible = true;
-                        break;
-                    case "6":
+                    case "7":
                         btnConfiguraciones.Enabled = true;
                         btnConfiguraciones.Visible = true;
                         break;
                 }
                 
-            }*/
+            }
         }
 
         #endregion
@@ -277,6 +281,7 @@ namespace Presentation
         {
             AbrirFormulario<FPresentacionVer>();
             btnPresentaciones.BackColor = Color.FromArgb(255, 255, 255);
+            FPresentacionVer.f1.NotarDeshabilitado();
         }
 
         private void btnNuevaVentaCotizacion_Click(object sender, EventArgs e)

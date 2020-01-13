@@ -74,7 +74,7 @@ namespace DataAccess
                     using (var command = new MySqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT distinct id_presentacion, estado, case when estado = 0 then 'Super Administrador' when tipo = 1 then 'Administrador' end as estado2 from tb_presentacion order by estado desc";
+                        command.CommandText = "SELECT distinct id_presentacion,presentacion, estado, case when estado = 0 then 'Deshabilitado' when estado = 1 then 'Habilitado' end as estado2 from tb_presentacion order by estado desc";
                         command.CommandType = System.Data.CommandType.Text;
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter();

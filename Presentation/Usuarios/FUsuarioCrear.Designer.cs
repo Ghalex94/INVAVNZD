@@ -173,7 +173,7 @@
             this.chBoxCompras.AutoSize = true;
             this.chBoxCompras.Enabled = false;
             this.chBoxCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chBoxCompras.Location = new System.Drawing.Point(102, 349);
+            this.chBoxCompras.Location = new System.Drawing.Point(102, 351);
             this.chBoxCompras.Name = "chBoxCompras";
             this.chBoxCompras.Size = new System.Drawing.Size(89, 22);
             this.chBoxCompras.TabIndex = 6;
@@ -244,6 +244,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(443, 26);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // label6
             // 
@@ -299,6 +300,7 @@
             this.label2.Size = new System.Drawing.Size(76, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Nombre:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -310,6 +312,7 @@
             this.label1.Size = new System.Drawing.Size(242, 31);
             this.label1.TabIndex = 4;
             this.label1.Text = "CREAR USUARIO";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FUsuarioCrear
             // 

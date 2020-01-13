@@ -103,6 +103,12 @@
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FPresentacionActualizar.resx">
+      <DependentUpon>FPresentacionActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FPresentacionCrear.resx">
+      <DependentUpon>FPresentacionCrear.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FPresentacionVer.resx">
       <DependentUpon>FPresentacionVer.cs</DependentUpon>
     </EmbeddedResource>

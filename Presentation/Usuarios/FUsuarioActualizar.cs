@@ -21,17 +21,6 @@ namespace Presentation
             codi = id;
         }
 
-        private static FUsuarioActualizar frmInstance = null;
-        public static FUsuarioActualizar Instance(string nombre, string usuario, string pass, int tipo, string permisos, int id)
-        {
-            if (((frmInstance == null) || (frmInstance.IsDisposed == true)))
-            {
-                frmInstance = new FUsuarioActualizar(nombre, usuario, pass,tipo, permisos,id);
-            }
-            frmInstance.BringToFront();
-            return frmInstance;
-        }
-
         public void Llenar_formulario(string nombre, string usuario, string pass, int tipo, string permisos)
         {
             txtNombre.Text = nombre;
@@ -52,84 +41,49 @@ namespace Presentation
                         chBoxCompras.Checked = true;
                         break;
                     case "3":
-                        chBoxReportes.Checked = true;
+                        chBoxCaja.Checked = true;
                         break;
                     case "4":
-                        chBoxClientes.Checked = true;
+                        chBoxInventario.Checked = true;
                         break;
                     case "5":
-                        chBoxUsuarios.Checked = true;
+                        chBoxEntidades.Checked = true;
                         break;
                     case "6":
+                        chBoxReportes.Checked = true;
+                        break;
+                    case "7":
                         chBoxConfiguraciones.Checked = true;
                         break;
                 }
             }
         }
-        private string Asignarcheck()
+        private string AsignarChecks()
         {
-            string ventastr, comprastr, reportestr, clientestr, usuariostr, configuracionstr;
-            bool ventas = chBoxVentas.Checked;
-            bool compras = chBoxCompras.Checked;
-            bool reportes = chBoxReportes.Checked;
-            bool clientes = chBoxClientes.Checked;
-            bool usuarios = chBoxUsuarios.Checked;
-            bool configuraciones = chBoxConfiguraciones.Checked;
-            if (ventas == true)
-            {
-                ventastr = "1";
-            }
-            else
-            {
-                ventastr = "";
-            }
-            if (compras == true)
-            {
-                comprastr = "2";
-            }
-            else
-            {
-                comprastr = "";
-            }
-            if (reportes == true)
-            {
-                reportestr = "3";
-            }
-            else
-            {
-                reportestr = "";
-            }
-            if (clientes == true)
-            {
-                clientestr = "4";
-            }
-            else
-            {
-                clientestr = "";
-            }
-            if (usuarios == true)
-            {
-                usuariostr = "5";
-            }
-            else
-            {
-                usuariostr = "";
-            }
-            if (configuraciones == true)
-            {
-                configuracionstr = "6";
-            }
-            else
-            {
-                configuracionstr = "";
-            }
-            return (ventastr + "," + comprastr + "," + reportestr + "," + clientestr + "," + usuariostr + "," + configuracionstr);
+            string permisos = "";
+
+            if (chBoxVentas.Checked == true)
+                permisos = permisos + "1,";
+            if (chBoxCompras.Checked == true)
+                permisos = permisos + "2,";
+            if (chBoxCaja.Checked == true)
+                permisos = permisos + "3,";
+            if (chBoxInventario.Checked == true)
+                permisos = permisos + "4,";
+            if (chBoxEntidades.Checked == true)
+                permisos = permisos + "5,";
+            if (chBoxReportes.Checked == true)
+                permisos = permisos + "6,";
+            if (chBoxConfiguraciones.Checked == true)
+                permisos = permisos + "7,";
+
+            return permisos;
         }
 
         public void btnActualizar_Click(object sender, EventArgs e)
         {                 
             UserModel user = new UserModel();
-            user.ActualizarUsuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, cbTipoUsuario.SelectedIndex, Asignarcheck(),codi);
+            user.ActualizarUsuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, cbTipoUsuario.SelectedIndex, AsignarChecks(),codi);
             FUsuariosVer.f1.CargarTabla();
             FUsuariosVer.f1.NotarDeshabilitado();
             FUsuariosVer.f1.seleccionarUsuario(txtUsuario.Text);

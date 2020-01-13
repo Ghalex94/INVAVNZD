@@ -12,23 +12,23 @@ namespace Domain
     {
         PresentacionDao presDao = new PresentacionDao();
         
-        public void MostrarUSuarios(DataGridView dgv)
+        public void MostrarPresentacion(DataGridView dgv)
         {
             presDao.mostrarTabla(dgv);
         }
-        public void InsertarUsuario(string presentacion, int estado)
+        public void InsertarPresentacion(string presentacion, int estado)
         {
             presDao.insertarPresentacion(presentacion, estado);
         }
-        public void ActualizarUsuario(string presentacion, int id)
+        public void ActualizarPresentacion(string presentacion, int id)
         {
             presDao.actualizarPresentacion(presentacion, id);
         }
-        public void DeshabilitarUsuario(int id)
+        public void DeshabilitarPresentacion(int id)
         {
             presDao.deshabilitarPresentacion(id);
         }
-        public void HabilitarUsuario(int id)
+        public void HabilitarPresentacion(int id)
         {
             presDao.habilitarPresentacion(id);
         }
