@@ -38,10 +38,13 @@ namespace DataAccess
                             UserCache.permisosUsuario = reader.GetString(5);
                             UserCache.estado = reader.GetByte(6);
                         }
+                        connection.Close(); 
                         return true;
                     }
-                    else
+                    else { 
+                        connection.Close();
                         return false;
+                    }
                 }
             }
         }

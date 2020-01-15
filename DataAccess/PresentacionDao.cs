@@ -91,6 +91,36 @@ namespace DataAccess
                 MessageBox.Show("Error: " + error);
             }
         }
+        public void mostrarCombobox(ComboBox cbx)
+        {            
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "SELECT distinct id_presentacion,presentacion, estado from tb_presentacion order by estado desc";
+                        command.CommandType = System.Data.CommandType.Text;
+
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+                        System.Data.DataTable dt = new System.Data.DataTable();
+
+                        adapter.Fill(dt);
+
+                        cbx.ValueMember = "id_presentacion";
+                        cbx.DisplayMember = "presentacion";
+                        cbx.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+        }
         public void insertarPresentacion(string presentacion, int estado)
         {
             using (var connection = GetConnection())
