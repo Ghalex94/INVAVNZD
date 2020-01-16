@@ -16,6 +16,10 @@ namespace Domain
         {
             presDao.mostrarTabla(dgv);
         }
+        public void MostrarCombobox(ComboBox cbx)
+        {
+            presDao.mostrarCombobox(cbx);
+        }
         public void InsertarPresentacion(string presentacion, int estado)
         {
             presDao.insertarPresentacion(presentacion, estado);

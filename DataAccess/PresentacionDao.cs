@@ -101,7 +101,7 @@ namespace DataAccess
                     using (var command = new MySqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT distinct id_presentacion,presentacion, estado from tb_presentacion order by estado desc";
+                        command.CommandText = "SELECT distinct id_presentacion,presentacion, estado from tb_presentacion where estado=1 order by estado desc";
                         command.CommandType = System.Data.CommandType.Text;
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter();

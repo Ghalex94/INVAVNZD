@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Common.Cache;
 using Presentation.Presentacion;
+using Presentation.Producto;
 
 namespace Presentation
 {
@@ -283,6 +284,13 @@ namespace Presentation
             btnPresentaciones.BackColor = Color.FromArgb(255, 255, 255);
             FPresentacionVer.f1.NotarDeshabilitado();
         }
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FProductoVer>();
+            btnProductos.BackColor = Color.FromArgb(255, 255, 255);
+            FProductoVer.f1.NotarDeshabilitado();
+
+        }
 
         private void btnNuevaVentaCotizacion_Click(object sender, EventArgs e)
         {
@@ -316,6 +324,10 @@ namespace Presentation
             {
                 btnPresentaciones.BackColor = Color.FromArgb(215, 228, 242);
             }
+            if (Application.OpenForms["FProductoVer"] == null)
+            {
+                btnProductos.BackColor = Color.FromArgb(215, 228, 242);
+            }
             //if (Application.OpenForms["Form2"] == null)
             //{
 
@@ -326,8 +338,8 @@ namespace Presentation
             //    sub3Button1.BackColor = Color.White;
             //}
         }
-        #endregion
 
+        #endregion
 
     }
 }

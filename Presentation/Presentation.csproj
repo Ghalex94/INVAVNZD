@@ -77,6 +77,24 @@
     <Compile Include="Presentacion\FPresentacionVer.Designer.cs">
       <DependentUpon>FPresentacionVer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto\FProductoActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\FProductoActualizar.Designer.cs">
+      <DependentUpon>FProductoActualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\FProductoCrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\FProductoCrear.Designer.cs">
+      <DependentUpon>FProductoCrear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\FProductoVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\FProductoVer.Designer.cs">
+      <DependentUpon>FProductoVer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios\FUsuarioActualizar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FPresentacionVer.resx">
       <DependentUpon>FPresentacionVer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\FProductoCrear.resx">
+      <DependentUpon>FProductoCrear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\FProductoVer.resx">
+      <DependentUpon>FProductoVer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\FUsuarioActualizar.resx">
       <DependentUpon>FUsuarioActualizar.cs</DependentUpon>

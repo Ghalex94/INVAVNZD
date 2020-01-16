@@ -96,7 +96,6 @@ namespace Presentation.Presentacion
                 e.Handled = true;
             }
         }
-
         private void dgvPresentacion_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
