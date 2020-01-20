@@ -1,7 +1,6 @@
 create database db_inventario_avanzado;
 use db_inventario_avanzado;
 
-
 -- Creacion de la tabla producto:
 create table tb_presentacion(
 	id_presentacion 	int auto_increment primary key, -- COdigo de la Presentacion

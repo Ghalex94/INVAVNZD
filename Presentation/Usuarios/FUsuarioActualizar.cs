@@ -21,7 +21,7 @@ namespace Presentation
             codi = id;
         }
 
-        public void Llenar_formulario(string nombre, string usuario, string pass, int tipo, string permisos)
+        private void Llenar_formulario(string nombre, string usuario, string pass, int tipo, string permisos)
         {
             txtNombre.Text = nombre;
             txtUsuario.Text = usuario;

@@ -130,6 +130,9 @@
     <EmbeddedResource Include="Presentacion\FPresentacionVer.resx">
       <DependentUpon>FPresentacionVer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Producto\FProductoActualizar.resx">
+      <DependentUpon>FProductoActualizar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Producto\FProductoCrear.resx">
       <DependentUpon>FProductoCrear.cs</DependentUpon>
     </EmbeddedResource>

@@ -68,7 +68,7 @@ namespace Presentation.Producto
             dgvProducto.ClearSelection();
             foreach (DataGridViewRow row in dgvProducto.Rows)
             {
-                if (presentacion == row.Cells["presentacion"].Value.ToString())
+                if (presentacion == row.Cells["producto"].Value.ToString())
                 {
                     dgvProducto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     row.Selected = true;
@@ -131,10 +131,9 @@ namespace Presentation.Producto
                     string laboratorio = dgvProducto.CurrentRow.Cells[9].Value.ToString();
                     string composicion = dgvProducto.CurrentRow.Cells[10].Value.ToString();
                     int id_presentacion=int.Parse(dgvProducto.CurrentRow.Cells[11].Value.ToString());
-                    int estado=int.Parse( dgvProducto.CurrentRow.Cells[13].Value.ToString());
                     //MessageBox.Show(nombre + usuario + pass + tipo + permisos);
 
-                    Form actualizar = new FProductoActualizar(cod_barra, producto, detalle, cantidad, fec_vencimiento, lote, laboratorio, composicion, id_presentacion, estado, id);
+                    Form actualizar = new FProductoActualizar(cod_barra, producto, detalle, cantidad, fec_vencimiento, lote, laboratorio, composicion, id_presentacion, id);
                     actualizar.ShowDialog();
 
 
