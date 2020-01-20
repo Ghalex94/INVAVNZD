@@ -40,7 +40,20 @@ namespace Presentation.Producto
                 FProductoVer.f1.NotarDeshabilitado();
                 FProductoVer.f1.seleccionarProducto(txtProducto.Text);
                 MessageBox.Show("Producto Ingresado con Exito");
+
+                txtCodBarra.Text = "";
+                txtProducto.Text = "";
+                txtDetalle.Text = "";
+                txtCantidad.Text = "";
+                cbxPresentacion.SelectedIndex = 0;
+                dtpVencimiento.Value = DateTime.Now;
+                txtLote.Text = "";
+                txtLaboratorio.Text = "";
+                txtComposicion.Text = "";
+                txtCodBarra.Focus();
             }
+
+
         }
     }
 }
