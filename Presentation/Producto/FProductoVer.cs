@@ -20,7 +20,7 @@ namespace Presentation.Producto
         {
             FProductoVer.f1= this;
             InitializeComponent();
-            cbxfiltro.SelectedIndex = 0;
+            cbxfiltro.SelectedIndex = 1;
         }
         public void cargartabla()
         {
@@ -59,6 +59,8 @@ namespace Presentation.Producto
             Column = dgvProducto.Columns[9];
             Column.Visible = false;
             Column = dgvProducto.Columns[11];
+            Column.Visible = false;
+            Column = dgvProducto.Columns[12];
             Column.Visible = false;
         }
         #endregion
@@ -210,6 +212,41 @@ namespace Presentation.Producto
         private void dgvPresentacion_ColumnHeaderCellChanged(object sender, DataGridViewColumnEventArgs e)
         {
             NotarDeshabilitado();
+        }
+
+        private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (cbxfiltro.SelectedIndex == 0)
+            {
+                productoModel.Filtrar_Por_CodBarra(txtBuscar.Text,dgvProducto);
+                NotarDeshabilitado();
+            }
+            if (cbxfiltro.SelectedIndex == 1)
+            {
+                productoModel.Filtrar_Por_Producto(txtBuscar.Text, dgvProducto);
+                NotarDeshabilitado();
+            }
+            if (cbxfiltro.SelectedIndex == 2)
+            {
+                productoModel.Filtrar_Por_Detalle(txtBuscar.Text, dgvProducto);
+                NotarDeshabilitado();
+            }
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtBuscar.Text.Equals(""))
+            {
+                cargartabla();               
+            }
+            else
+            {
+                if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                {
+                    e.Handled = true;
+                }
+
+            }
         }
     }
 }

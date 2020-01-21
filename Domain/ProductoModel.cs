@@ -15,6 +15,18 @@ namespace Domain
         {
             productoDao.mostrarTabla(dgv);
         }
+        public void Filtrar_Por_CodBarra(string codBarra, DataGridView dgv)
+        {
+            productoDao.filtrarCodBarra(codBarra, dgv);
+        }
+        public void Filtrar_Por_Producto(string producto,DataGridView dgv)
+        {
+            productoDao.filtrarProducto(producto, dgv);
+        }
+        public void Filtrar_Por_Detalle(string detalle,DataGridView dgv)
+        {
+            productoDao.filtrarDetalle(detalle, dgv);
+        }
         public void InsertarProducto(string cod_bar, string producto, string det_prod, double cant_total, DateTime fecha_vencimiento, string lote, string laboratorio, string composicion, int id_presentacion, int estado)
         {
             productoDao.insertarProducto(cod_bar, producto, det_prod, cant_total, fecha_vencimiento, lote, laboratorio, composicion, id_presentacion, estado);

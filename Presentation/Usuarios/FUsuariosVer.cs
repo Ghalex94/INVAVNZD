@@ -57,8 +57,10 @@ namespace Presentation
             Column.Visible = false;
             Column = dgvUsuarios.Columns[4];
             Column.Visible = false;
-            //Column = dgvUsuarios.Columns[7];
-            //Column.Visible = false;
+            Column = dgvUsuarios.Columns[6];
+            Column.Visible = false;
+            Column = dgvUsuarios.Columns[7];
+            Column.Visible = false;
         }
         #endregion
 
@@ -229,6 +231,14 @@ namespace Presentation
         private void dgvUsuarios_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             NotarDeshabilitado();
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

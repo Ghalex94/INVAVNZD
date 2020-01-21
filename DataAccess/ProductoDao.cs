@@ -21,7 +21,88 @@ namespace DataAccess
                     using (var command = new MySqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT distinct pr.id_prod, pr.cod_bar, pr.producto, pr.det_prod, pr.cant_total, pr.fecha_vencimiento, pr.lote, pr.laboratorio, pr.composicion,pr.id_presentacion, pst.presentacion, pr.estado, case when pr.estado = 0 then 'Deshabilitado' when pr.estado = 1 then 'Habilitado' end as estado2 from tb_producto pr inner join  tb_presentacion pst  on pr.id_presentacion=pst.id_presentacion order by estado desc";
+                        command.CommandText = "SELECT distinct pr.id_prod, pr.cod_bar, pr.producto, pr.det_prod, pr.cant_total, pr.fecha_vencimiento, pr.lote, pr.laboratorio, pr.composicion,pr.id_presentacion, pst.presentacion, pr.estado, case when pr.estado = 0 then 'Deshabilitado' when pr.estado = 1 then 'Habilitado' end as estado2 from tb_producto pr inner join  tb_presentacion pst  on pr.id_presentacion=pst.id_presentacion order by pr.estado desc";
+                        command.CommandType = System.Data.CommandType.Text;
+
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+                        System.Data.DataTable dt = new System.Data.DataTable();
+
+                        adapter.Fill(dt);
+                        dgv.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+        }
+        public void filtrarCodBarra(string nombrem, DataGridView dgv)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "SELECT distinct pr.id_prod, pr.cod_bar, pr.producto, pr.det_prod, pr.cant_total, pr.fecha_vencimiento, pr.lote, pr.laboratorio, pr.composicion,pr.id_presentacion, pst.presentacion, pr.estado, case when pr.estado = 0 then 'Deshabilitado' when pr.estado = 1 then 'Habilitado' end as estado2 from tb_producto pr inner join  tb_presentacion pst  on pr.id_presentacion=pst.id_presentacion where pr.cod_bar = '" + nombrem +"'"; //+ " order by pr.estado desc"
+                        command.CommandType = System.Data.CommandType.Text;
+
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+                        System.Data.DataTable dt = new System.Data.DataTable();
+
+                        adapter.Fill(dt);
+                        dgv.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+        }
+        public void filtrarProducto(string nombrem, DataGridView dgv)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "SELECT distinct pr.id_prod, pr.cod_bar, pr.producto, pr.det_prod, pr.cant_total, pr.fecha_vencimiento, pr.lote, pr.laboratorio, pr.composicion,pr.id_presentacion, pst.presentacion, pr.estado, case when pr.estado = 0 then 'Deshabilitado' when pr.estado = 1 then 'Habilitado' end as estado2 from tb_producto pr inner join  tb_presentacion pst  on pr.id_presentacion=pst.id_presentacion where pr.producto like '%" + nombrem + "%'"; // order by pr.estado desc
+                        command.CommandType = System.Data.CommandType.Text;
+
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+                        System.Data.DataTable dt = new System.Data.DataTable();
+
+                        adapter.Fill(dt);
+                        dgv.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+        }
+        public void filtrarDetalle(string nombrem, DataGridView dgv)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "SELECT distinct pr.id_prod, pr.cod_bar, pr.producto, pr.det_prod, pr.cant_total, pr.fecha_vencimiento, pr.lote, pr.laboratorio, pr.composicion,pr.id_presentacion, pst.presentacion, pr.estado, case when pr.estado = 0 then 'Deshabilitado' when pr.estado = 1 then 'Habilitado' end as estado2 from tb_producto pr inner join  tb_presentacion pst  on pr.id_presentacion=pst.id_presentacion where pr.det_prod like '%" + nombrem + "%'"; // order by pr.estado desc
                         command.CommandType = System.Data.CommandType.Text;
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter();

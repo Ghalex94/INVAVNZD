@@ -45,6 +45,8 @@ namespace Presentation.Presentacion
             Column.Visible = false;
             Column = dgvPresentacion.Columns[2];
             Column.Visible = false;
+            Column = dgvPresentacion.Columns[3];
+            Column.Visible = false;
         }
         #region SeleccionarColumna
         public void seleccionarPresentacion(string presentacion)
