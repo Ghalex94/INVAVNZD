@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using Common.Cache;
 using Presentation.Presentacion;
 using Presentation.Producto;
+using Presentation.Almacen;
 
 namespace Presentation
 {
@@ -291,6 +292,12 @@ namespace Presentation
             FProductoVer.f1.NotarDeshabilitado();
 
         }
+        private void btnLocalesAlmacenes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FAlmacenVer>();
+            btnLocalesAlmacenes.BackColor = Color.FromArgb(255, 255, 255);
+            FAlmacenVer.f1.NotarDeshabilitado();
+        }
 
         private void btnNuevaVentaCotizacion_Click(object sender, EventArgs e)
         {
@@ -328,6 +335,10 @@ namespace Presentation
             {
                 btnProductos.BackColor = Color.FromArgb(215, 228, 242);
             }
+            if (Application.OpenForms["FAlmacenVer"] == null) 
+            {
+                btnLocalesAlmacenes.BackColor = Color.FromArgb(215, 228, 242);
+            }
             //if (Application.OpenForms["Form2"] == null)
             //{
 
@@ -341,5 +352,6 @@ namespace Presentation
 
         #endregion
 
+        
     }
 }

@@ -47,6 +47,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Almacen\FAlmacenActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen\FAlmacenActualizar.Designer.cs">
+      <DependentUpon>FAlmacenActualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\FAlmacenCrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen\FAlmacenCrear.Designer.cs">
+      <DependentUpon>FAlmacenCrear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Almacen\FAlmacenVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Almacen\FAlmacenVer.Designer.cs">
+      <DependentUpon>FAlmacenVer.cs</DependentUpon>
+    </Compile>
     <Compile Include="FLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +133,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Almacen\FAlmacenActualizar.resx">
+      <DependentUpon>FAlmacenActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacen\FAlmacenCrear.resx">
+      <DependentUpon>FAlmacenCrear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Almacen\FAlmacenVer.resx">
+      <DependentUpon>FAlmacenVer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FLogin.resx">
       <DependentUpon>FLogin.cs</DependentUpon>
     </EmbeddedResource>

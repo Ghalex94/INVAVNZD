@@ -48,7 +48,7 @@ namespace DataAccess
                     using (var command = new MySqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT distinct pr.id_prod, pr.cod_bar, pr.producto, pr.det_prod, pr.cant_total, pr.fecha_vencimiento, pr.lote, pr.laboratorio, pr.composicion,pr.id_presentacion, pst.presentacion, pr.estado, case when pr.estado = 0 then 'Deshabilitado' when pr.estado = 1 then 'Habilitado' end as estado2 from tb_producto pr inner join  tb_presentacion pst  on pr.id_presentacion=pst.id_presentacion where pr.cod_bar = '" + nombrem +"'"; //+ " order by pr.estado desc"
+                        command.CommandText = "SELECT distinct pr.id_prod, pr.cod_bar, pr.producto, pr.det_prod, pr.cant_total, pr.fecha_vencimiento, pr.lote, pr.laboratorio, pr.composicion,pr.id_presentacion, pst.presentacion, pr.estado, case when pr.estado = 0 then 'Deshabilitado' when pr.estado = 1 then 'Habilitado' end as estado2 from tb_producto pr inner join  tb_presentacion pst  on pr.id_presentacion=pst.id_presentacion where pr.cod_bar like '%" + nombrem +"%'"; //+ " order by pr.estado desc"
                         command.CommandType = System.Data.CommandType.Text;
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter();

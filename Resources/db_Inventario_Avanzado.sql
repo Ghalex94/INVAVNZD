@@ -79,7 +79,9 @@ create table tb_compra_detalle(
 
 create table tb_almacen(
 	id_almacen			int primary key auto_increment, -- Codigo primario de la Tabla tb_almacen
-    nombre				varchar(100) -- Nombre del almacen
+    nombre				varchar(100), -- Nombre del almacen
+    
+    estado 				tinyint -- Estado si esta Habilitado o Deshabilitado
 );
 
 create table tb_alm_com_det(

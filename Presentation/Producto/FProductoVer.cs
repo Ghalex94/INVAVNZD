@@ -40,18 +40,18 @@ namespace Presentation.Producto
             dgvProducto.Columns.Add(btneliminar);
 
             dgvProducto.Columns[0].HeaderText = "ID";
-            dgvProducto.Columns[1].HeaderText = "COD. BARRA";
-            dgvProducto.Columns[2].HeaderText = "PRODUCTO";
-            dgvProducto.Columns[3].HeaderText = "DETALLE";
-            dgvProducto.Columns[4].HeaderText = "CANTIDAD";
-            dgvProducto.Columns[5].HeaderText = "FECHA VENCIMIENTO";
-            dgvProducto.Columns[6].HeaderText = "LOTE";
-            dgvProducto.Columns[7].HeaderText = "LABORATORIO";
-            dgvProducto.Columns[8].HeaderText = "COMPOSICION";
+            dgvProducto.Columns[1].HeaderText = "Cod.Barra";
+            dgvProducto.Columns[2].HeaderText = "Producto";
+            dgvProducto.Columns[3].HeaderText = "Detalle";
+            dgvProducto.Columns[4].HeaderText = "Cantidad";
+            dgvProducto.Columns[5].HeaderText = "Vencimiento";
+            dgvProducto.Columns[6].HeaderText = "Lote";
+            dgvProducto.Columns[7].HeaderText = "Laboratorio";
+            dgvProducto.Columns[8].HeaderText = "Composición";
             dgvProducto.Columns[9].HeaderText = "PRESENTACION Number";
-            dgvProducto.Columns[10].HeaderText = "PRESENTACION";
+            dgvProducto.Columns[10].HeaderText = "Presentacion";
             dgvProducto.Columns[11].HeaderText = "ESTADO Number";
-            dgvProducto.Columns[12].HeaderText = "ESTADO";
+            dgvProducto.Columns[12].HeaderText = "Estado";
 
             DataGridViewColumn Column;
             Column = dgvProducto.Columns[0];

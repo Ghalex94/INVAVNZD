@@ -477,6 +477,7 @@
             this.btnLocalesAlmacenes.Text = "Locales / Almacenes";
             this.btnLocalesAlmacenes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLocalesAlmacenes.UseVisualStyleBackColor = false;
+            this.btnLocalesAlmacenes.Click += new System.EventHandler(this.btnLocalesAlmacenes_Click);
             // 
             // btnPresentaciones
             // 
