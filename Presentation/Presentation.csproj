@@ -65,6 +65,24 @@
     <Compile Include="Almacen\FAlmacenVer.Designer.cs">
       <DependentUpon>FAlmacenVer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cliente\FClienteActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\FClienteActualizar.Designer.cs">
+      <DependentUpon>FClienteActualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\FClienteCrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\FClienteCrear.Designer.cs">
+      <DependentUpon>FClienteCrear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\FClienteVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\FClienteVer.Designer.cs">
+      <DependentUpon>FClienteVer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Distribuidor\FDistribuidorActualizar.cs">
       <SubType>Form</SubType>
     </Compile>
