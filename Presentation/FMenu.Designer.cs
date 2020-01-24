@@ -359,6 +359,7 @@
             this.btnDistribuidores.Text = "Distribuidores";
             this.btnDistribuidores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDistribuidores.UseVisualStyleBackColor = false;
+            this.btnDistribuidores.Click += new System.EventHandler(this.btnDistribuidores_Click);
             // 
             // btnClientes
             // 

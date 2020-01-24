@@ -169,7 +169,7 @@ namespace Presentation
                     }
                 }
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 //MessageBox.Show(ex.ToString());
             }
