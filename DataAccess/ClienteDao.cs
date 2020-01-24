@@ -37,6 +37,121 @@ namespace DataAccess
                 MessageBox.Show("Error: " + error);
             }
         }
+        public void insertarCliente(string dni_cli, string nom_cli, string ape_cli, string ruc_cli, string raz_soc, string dir_cli, string telf_cel, DateTime fec_nac, string correo, int tipo, int estado)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand())
+                {
+                    try
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "insert into tb_cliente(dni_cli, nom_cli, ape_cli, ruc_cli, raz_soc, dir_cli,telf_cel,fec_nac,correo,tipo, estado) values(@dni_cli, @nom_cli, @ape_cli, @ruc_cli, @raz_soc, @dir_cli,@telf_cel,@fec_nac,@correo,@tipo, @estado)";
+                        command.Parameters.AddWithValue("@dni_cli", dni_cli);
+                        command.Parameters.AddWithValue("@nom_cli", nom_cli);
+                        command.Parameters.AddWithValue("@ape_cli", ape_cli);
+                        command.Parameters.AddWithValue("@ruc_cli", ruc_cli;
+                        command.Parameters.AddWithValue("@raz_soc", raz_soc);
+                        command.Parameters.AddWithValue("@dir_cli", dir_cli);
+                        command.Parameters.AddWithValue("@telf_cel", telf_cel);
+                        command.Parameters.AddWithValue("@fec_nac", fec_nac);
+                        command.Parameters.AddWithValue("@correo", correo);
+                        command.Parameters.AddWithValue("@tipo", tipo);
+                        command.Parameters.AddWithValue("@estado", estado);
+                        command.ExecuteNonQuery();
+
+                        //MessageBox.Show("Registro Ingresado con Exito");
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error: " + error);
+                    }
+                }
+            }
+        }
+        public void actualizarUsuario(string dni_cli, string nom_cli, string ape_cli, string ruc_cli, string raz_soc, string dir_cli, string telf_cel, DateTime fec_nac, string correo, int tipo, int estado, int id)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand())
+                {
+                    try
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "update tb_cliente set dni_cli=@dni_cli, nom_cli=@nom_cli, ape_cli=@ape_cli, ruc_cli=@ruc_cli, raz_soc=@raz_soc, dir_cli=@dir_cli,telf_cel=@telf_cel,fec_nac=@fec_nac,correo=@correo,tipo=@tipo, estado=@estado where id_cli = @id";
+                        command.Parameters.AddWithValue("@dni_cli", dni_cli);
+                        command.Parameters.AddWithValue("@nom_cli", nom_cli);
+                        command.Parameters.AddWithValue("@ape_cli", ape_cli);
+                        command.Parameters.AddWithValue("@ruc_cli", ruc_cli;
+                        command.Parameters.AddWithValue("@raz_soc", raz_soc);
+                        command.Parameters.AddWithValue("@dir_cli", dir_cli);
+                        command.Parameters.AddWithValue("@telf_cel", telf_cel);
+                        command.Parameters.AddWithValue("@fec_nac", fec_nac);
+                        command.Parameters.AddWithValue("@correo", correo);
+                        command.Parameters.AddWithValue("@tipo", tipo);
+                        command.Parameters.AddWithValue("@estado", estado);
+                        command.Parameters.AddWithValue("@id", id);
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Registro Actualizado con Exito");
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error: " + error);
+                    }
+                }
+            }
+        }
+        public void deshabilitarCliente(int id)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand())
+                {
+                    try
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "update tb_cliente SET estado = 0 WHERE id_cli = @id";
+                        command.Parameters.AddWithValue("@id", id);
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Usuario Deshabilitado");
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error: " + error);
+                    }
+                }
+            }
+        }
+        public void habilitarCliente(int id)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand())
+                {
+                    try
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "update tb_cliente SET estado = 1 WHERE id_cli = @id";
+                        command.Parameters.AddWithValue("@id", id);
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Usuario Habilitado");
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show("Error: " + error);
+                    }
+                }
+            }
+        }
+
+        /**/
         public void filtrarNombre(string nombrem, DataGridView dgv)
         {
             try
@@ -89,108 +204,6 @@ namespace DataAccess
             catch (Exception error)
             {
                 MessageBox.Show("Error: " + error);
-            }
-        }
-        public void insertarUsuario(string nombre, string usu, string pass, int tipo, string permisos, int estado)
-        {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                using (var command = new MySqlCommand())
-                {
-                    try
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "insert into tb_usuario(nombre_usu,usu,contra,tipo,permisos,estado)values(@nombre,@usu,@pass,@tipo,@permisos,@estado)";
-                        command.Parameters.AddWithValue("@nombre", nombre);
-                        command.Parameters.AddWithValue("@usu", usu);
-                        command.Parameters.AddWithValue("@pass", pass);
-                        command.Parameters.AddWithValue("@tipo", tipo);
-                        command.Parameters.AddWithValue("@permisos", permisos);
-                        command.Parameters.AddWithValue("@estado", estado);
-                        command.ExecuteNonQuery();
-
-                        //MessageBox.Show("Registro Ingresado con Exito");
-                    }
-                    catch (Exception error)
-                    {
-                        MessageBox.Show("Error: " + error);
-                    }
-                }
-            }
-        }
-        public void actualizarUsuario(string nombre, string usu, string pass, int tipo, string permisos, int id)
-        {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                using (var command = new MySqlCommand())
-                {
-                    try
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "update tb_usuario SET nombre_usu = @nombre,usu = @usu,contra = @pass,tipo = @tipo,permisos = @permisos WHERE id_usu = @id";
-                        command.Parameters.AddWithValue("@nombre", nombre);
-                        command.Parameters.AddWithValue("@usu", usu);
-                        command.Parameters.AddWithValue("@pass", pass);
-                        command.Parameters.AddWithValue("@tipo", tipo);
-                        command.Parameters.AddWithValue("@permisos", permisos);
-                        command.Parameters.AddWithValue("@id", id);
-                        command.ExecuteNonQuery();
-
-                        MessageBox.Show("Registro Actualizado con Exito");
-                    }
-                    catch (Exception error)
-                    {
-                        MessageBox.Show("Error: " + error);
-                    }
-                }
-            }
-        }
-        public void deshabilitarUsuario(int id)
-        {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                using (var command = new MySqlCommand())
-                {
-                    try
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "update tb_usuario SET estado = 0 WHERE id_usu = @id";
-                        command.Parameters.AddWithValue("@id", id);
-                        command.ExecuteNonQuery();
-
-                        MessageBox.Show("Usuario Deshabilitado");
-                    }
-                    catch (Exception error)
-                    {
-                        MessageBox.Show("Error: " + error);
-                    }
-                }
-            }
-        }
-        public void habilitarUsuario(int id)
-        {
-            using (var connection = GetConnection())
-            {
-                connection.Open();
-                using (var command = new MySqlCommand())
-                {
-                    try
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "update tb_usuario SET estado = 1 WHERE id_usu = @id";
-                        command.Parameters.AddWithValue("@id", id);
-                        command.ExecuteNonQuery();
-
-                        MessageBox.Show("Usuario Habilitado");
-                    }
-                    catch (Exception error)
-                    {
-                        MessageBox.Show("Error: " + error);
-                    }
-                }
             }
         }
 
