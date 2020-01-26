@@ -178,6 +178,12 @@
     <EmbeddedResource Include="Almacen\FAlmacenVer.resx">
       <DependentUpon>FAlmacenVer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\FClienteActualizar.resx">
+      <DependentUpon>FClienteActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\FClienteVer.resx">
+      <DependentUpon>FClienteVer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Distribuidor\FDistribuidorActualizar.resx">
       <DependentUpon>FDistribuidorActualizar.cs</DependentUpon>
     </EmbeddedResource>

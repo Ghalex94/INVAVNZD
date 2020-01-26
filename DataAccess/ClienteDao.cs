@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace DataAccess
 {
-    class ClienteDao:ConnectionToMySql
+    public class ClienteDao:ConnectionToMySql
     {
         public void mostrarTabla(DataGridView dgv)
         {          
@@ -20,7 +20,7 @@ namespace DataAccess
                     using (var command = new MySqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT distinct id_cli, dni_cli, nom_cli, ape_cli, ruc_cli, raz_soc, dir_cli,telf_cel,fec_nac,correo,tipo,case when tipo = 0 then 'Juridica' when tipo = 1 then 'Natural' when tipo = 2 then 'Vendedor' end as tipo2, estado,case when estado = 0 then 'Deshabilitado' when estado = 1 then 'Habilitado' end as estado2 from tb_cliente order by estado desc";
+                        command.CommandText = "SELECT distinct id_cli, dni_cli, nom_cli, ape_cli, ruc_cli, raz_soc, dir_cli,telf_cel,fec_nac,correo,tipo,case when tipo = 0 then 'Juridica' when tipo = 1 then 'Natural' end as tipo2, estado,case when estado = 0 then 'Deshabilitado' when estado = 1 then 'Habilitado' end as estado2 from tb_cliente order by estado desc";
                         command.CommandType = System.Data.CommandType.Text;
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -51,7 +51,7 @@ namespace DataAccess
                         command.Parameters.AddWithValue("@dni_cli", dni_cli);
                         command.Parameters.AddWithValue("@nom_cli", nom_cli);
                         command.Parameters.AddWithValue("@ape_cli", ape_cli);
-                        command.Parameters.AddWithValue("@ruc_cli", ruc_cli;
+                        command.Parameters.AddWithValue("@ruc_cli", ruc_cli);
                         command.Parameters.AddWithValue("@raz_soc", raz_soc);
                         command.Parameters.AddWithValue("@dir_cli", dir_cli);
                         command.Parameters.AddWithValue("@telf_cel", telf_cel);
@@ -84,7 +84,7 @@ namespace DataAccess
                         command.Parameters.AddWithValue("@dni_cli", dni_cli);
                         command.Parameters.AddWithValue("@nom_cli", nom_cli);
                         command.Parameters.AddWithValue("@ape_cli", ape_cli);
-                        command.Parameters.AddWithValue("@ruc_cli", ruc_cli;
+                        command.Parameters.AddWithValue("@ruc_cli", ruc_cli);
                         command.Parameters.AddWithValue("@raz_soc", raz_soc);
                         command.Parameters.AddWithValue("@dir_cli", dir_cli);
                         command.Parameters.AddWithValue("@telf_cel", telf_cel);
@@ -152,7 +152,7 @@ namespace DataAccess
         }
 
         /**/
-        public void filtrarNombre(string nombrem, DataGridView dgv)
+        public void filtrarDNI(string dni, DataGridView dgv)
         {
             try
             {
@@ -162,7 +162,7 @@ namespace DataAccess
                     using (var command = new MySqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT distinct id_usu, nombre_usu, usu, contra, tipo, case when tipo = 0 then 'Super Administrador' when tipo = 1 then 'Administrador' when tipo = 2 then 'Vendedor' end as tipo2, permisos, estado from tb_usuario where nombre_usu like '%" + nombrem + "%'";
+                        command.CommandText = "SELECT distinct id_cli, dni_cli, nom_cli, ape_cli, ruc_cli, raz_soc, dir_cli,telf_cel,fec_nac,correo,tipo,case when tipo = 0 then 'Juridica' when tipo = 1 then 'Natural' end as tipo2, estado,case when estado = 0 then 'Deshabilitado' when estado = 1 then 'Habilitado' end as estado2 from tb_cliente WHERE dni_cli like '%"+dni+"%'";
                         command.ExecuteNonQuery();
 
                         System.Data.DataTable dt = new System.Data.DataTable();
@@ -179,7 +179,7 @@ namespace DataAccess
                 MessageBox.Show("Error: " + error);
             }
         }
-        public void filtrarUsuario(string usuario, DataGridView dgv)
+        public void filtrarRUC(string ruc, DataGridView dgv)
         {
             try
             {
@@ -189,7 +189,7 @@ namespace DataAccess
                     using (var command = new MySqlCommand())
                     {
                         command.Connection = connection;
-                        command.CommandText = "SELECT distinct id_usu, nombre_usu, usu, contra, tipo, case when tipo = 0 then 'Super Administrador' when tipo = 1 then 'Administrador' when tipo = 2 then 'Vendedor' end as tipo2, permisos, estado from tb_usuario where usu like '%" + usuario + "%'";
+                        command.CommandText = "SELECT distinct id_cli, dni_cli, nom_cli, ape_cli, ruc_cli, raz_soc, dir_cli,telf_cel,fec_nac,correo,tipo,case when tipo = 0 then 'Juridica' when tipo = 1 then 'Natural' end as tipo2, estado,case when estado = 0 then 'Deshabilitado' when estado = 1 then 'Habilitado' end as estado2 from tb_cliente WHERE ruc_cli like '%" + ruc + "%'";
                         command.ExecuteNonQuery();
 
                         System.Data.DataTable dt = new System.Data.DataTable();
@@ -206,6 +206,59 @@ namespace DataAccess
                 MessageBox.Show("Error: " + error);
             }
         }
+        public void filtrarCliente(string cliente, DataGridView dgv)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "SELECT distinct id_cli, dni_cli, nom_cli, ape_cli, ruc_cli, raz_soc, dir_cli,telf_cel,fec_nac,correo,tipo,case when tipo = 0 then 'Juridica' when tipo = 1 then 'Natural' end as tipo2, estado,case when estado = 0 then 'Deshabilitado' when estado = 1 then 'Habilitado' end as estado2 from tb_cliente WHERE nom_cli like '%" + cliente + "%'";
+                        command.ExecuteNonQuery();
 
+                        System.Data.DataTable dt = new System.Data.DataTable();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+
+                        adapter.Fill(dt);
+                        dgv.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+        }
+        public void filtrarRazonSocial(string razonsocial, DataGridView dgv)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new MySqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "SELECT distinct id_cli, dni_cli, nom_cli, ape_cli, ruc_cli, raz_soc, dir_cli,telf_cel,fec_nac,correo,tipo,case when tipo = 0 then 'Juridica' when tipo = 1 then 'Natural' end as tipo2, estado,case when estado = 0 then 'Deshabilitado' when estado = 1 then 'Habilitado' end as estado2 from tb_cliente WHERE raz_soc like '%" + razonsocial + "%'";
+                        command.ExecuteNonQuery();
+
+                        System.Data.DataTable dt = new System.Data.DataTable();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+
+                        adapter.Fill(dt);
+                        dgv.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error: " + error);
+            }
+        }
     }
 }

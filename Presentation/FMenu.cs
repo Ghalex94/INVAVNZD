@@ -13,6 +13,7 @@ using Presentation.Presentacion;
 using Presentation.Producto;
 using Presentation.Almacen;
 using Presentation.Distribuidor;
+using Presentation.Cliente;
 
 namespace Presentation
 {
@@ -306,6 +307,11 @@ namespace Presentation
             btnDistribuidores.BackColor = Color.FromArgb(255, 255, 255);
             FDistribuidorVer.f1.NotarDeshabilitado();
         }
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FClienteVer>();
+            btnClientes.BackColor = Color.FromArgb(255, 255, 255);
+        }
         private void btnNuevaVentaCotizacion_Click(object sender, EventArgs e)
         {
 
@@ -350,18 +356,11 @@ namespace Presentation
             {
                 btnDistribuidores.BackColor = Color.FromArgb(215, 228, 242);
             }
-            //if (Application.OpenForms["Form2"] == null)
-            //{
-
-            //    sub2Button1.BackColor = Color.White;
-            //}
-            //if (Application.OpenForms["Form3"] == null)
-            //{
-            //    sub3Button1.BackColor = Color.White;
-            //}
-        }
-
-
+            if (Application.OpenForms["FClienteVer"] == null)
+            {
+                btnClientes.BackColor = Color.FromArgb(215, 228, 242);
+            }
+        }        
         #endregion
 
         
