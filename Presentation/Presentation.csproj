@@ -181,6 +181,9 @@
     <EmbeddedResource Include="Cliente\FClienteActualizar.resx">
       <DependentUpon>FClienteActualizar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\FClienteCrear.resx">
+      <DependentUpon>FClienteCrear.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cliente\FClienteVer.resx">
       <DependentUpon>FClienteVer.cs</DependentUpon>
     </EmbeddedResource>
